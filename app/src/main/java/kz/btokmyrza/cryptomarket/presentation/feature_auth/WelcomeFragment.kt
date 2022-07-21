@@ -17,11 +17,19 @@ class WelcomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentWelcomeBinding.inflate(inflater, container, false)
 
         binding.btnLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_welcomeFragment_to_tabsFragment)
+            findNavController().navigate(
+                R.id.action_welcomeFragment_to_tabsFragment
+            )
+        }
+
+        binding.btnSignUp.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_welcomeFragment_to_signUpFragment
+            )
         }
 
         return binding.root
