@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">CryptoMarket</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pay_for_favorite_purchases">Pay for your favorite purchases online</string>
+    <string name="fast_home_delivery">Fast home delivery of the card \nand free service</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_up_hint_name">Name</string>
+    <string name="terms_privacy_policy">Terms &amp; Privacy Policy</string>
+    <string name="sign_up_hint_email">Email</string>
+    <string name="sign_up_hint_password">Password</string>
+    <string name="tabs_main">Main</string>
+    <string name="tabs_trade">Trade</string>
+    <string name="tabs_pay">Pay</string>
+    <string name="tabs_history">History</string>
+    <string name="tabs_account">Account</string>
 </resources>

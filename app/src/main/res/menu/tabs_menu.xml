@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@id/main"
+        android:icon="@drawable/ic_tabs_main"
+        android:title="@string/tabs_main" />
+    <item
+        android:id="@id/trade"
+        android:icon="@drawable/ic_tabs_trade"
+        android:title="@string/tabs_trade" />
+    <item
+        android:id="@id/pay"
+        android:icon="@drawable/ic_tabs_pay"
+        android:title="@string/tabs_pay" />
+    <item
+        android:id="@id/history"
+        android:icon="@drawable/ic_tabs_history"
+        android:title="@string/tabs_history" />
+    <item
+        android:id="@id/account"
+        android:icon="@drawable/ic_tabs_account"
+        android:title="@string/tabs_account" />
+
+</menu>
