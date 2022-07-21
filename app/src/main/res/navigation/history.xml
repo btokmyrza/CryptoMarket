@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/historyFragment"
-        android:name="kz.btokmyrza.cryptomarket.presentation.tabs.history.HistoryFragment"
+        android:name="kz.btokmyrza.cryptomarket.presentation.feature_tabs.history.HistoryFragment"
         android:label="fragment_history"
         tools:layout="@layout/fragment_history" />
 </navigation>

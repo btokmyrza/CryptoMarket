@@ -1,24 +1,24 @@
-package kz.btokmyrza.cryptomarket.presentation.tabs.trade
+package kz.btokmyrza.cryptomarket.presentation.feature_tabs.history
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import kz.btokmyrza.cryptomarket.databinding.FragmentTradeBinding
+import kz.btokmyrza.cryptomarket.databinding.FragmentHistoryBinding
 
-class TradeFragment : Fragment() {
+class HistoryFragment : Fragment() {
 
-    private var _binding: FragmentTradeBinding? = null
+    private var _binding: FragmentHistoryBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var viewModel: TradeViewModel
+    private lateinit var viewModel: HistoryViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentTradeBinding.inflate(inflater, container, false)
+        _binding = FragmentHistoryBinding.inflate(inflater, container, false)
 
 
 

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.tabs.pay.PayFragment">
+    tools:context=".presentation.feature_tabs.pay.PayFragment">
 
     <TextView
         android:layout_width="match_parent"

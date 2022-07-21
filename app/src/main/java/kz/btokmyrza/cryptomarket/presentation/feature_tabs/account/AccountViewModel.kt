@@ -1,4 +1,4 @@
-package kz.btokmyrza.cryptomarket.presentation.tabs.account
+package kz.btokmyrza.cryptomarket.presentation.feature_tabs.account
 
 import androidx.lifecycle.ViewModel
 

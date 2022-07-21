@@ -1,4 +1,4 @@
-package kz.btokmyrza.cryptomarket.presentation.tabs.account
+package kz.btokmyrza.cryptomarket.presentation.feature_tabs.account
 
 import android.os.Bundle
 import android.view.LayoutInflater

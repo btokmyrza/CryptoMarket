@@ -11,9 +11,8 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import kz.btokmyrza.cryptomarket.R
 import kz.btokmyrza.cryptomarket.databinding.ActivityMainBinding
-import kz.btokmyrza.cryptomarket.presentation.tabs.TabsFragment
+import kz.btokmyrza.cryptomarket.presentation.feature_tabs.TabsFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.util.regex.Pattern
 
 class MainActivity : AppCompatActivity() {
 

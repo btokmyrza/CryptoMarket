@@ -1,4 +1,4 @@
-package kz.btokmyrza.cryptomarket.presentation.tabs.history
+package kz.btokmyrza.cryptomarket.presentation.feature_tabs.history
 
 import androidx.lifecycle.ViewModel
 

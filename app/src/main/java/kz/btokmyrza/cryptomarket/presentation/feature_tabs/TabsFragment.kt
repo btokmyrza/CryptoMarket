@@ -1,4 +1,4 @@
-package kz.btokmyrza.cryptomarket.presentation.tabs
+package kz.btokmyrza.cryptomarket.presentation.feature_tabs
 
 import android.os.Bundle
 import android.view.View
