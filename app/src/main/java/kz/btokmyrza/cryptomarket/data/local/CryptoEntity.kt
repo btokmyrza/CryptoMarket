@@ -3,7 +3,7 @@ package kz.btokmyrza.cryptomarket.data.local
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(tableName = "crypto")
 data class CryptoEntity(
-    @PrimaryKey val id: Int? = null
+    @PrimaryKey var id: Int? = null
 )
