@@ -1,10 +1,10 @@
-package kz.btokmyrza.cryptomarket.presentation.feature_auth
+package kz.btokmyrza.cryptomarket.presentation.auth
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kz.btokmyrza.cryptomarket.R
 import kz.btokmyrza.cryptomarket.databinding.FragmentWelcomeBinding
@@ -22,7 +22,7 @@ class WelcomeFragment : Fragment() {
 
         binding.btnLogin.setOnClickListener {
             findNavController().navigate(
-                R.id.action_welcomeFragment_to_tabsFragment
+                R.id.action_welcomeFragment_to_loginFragment
             )
         }
 

@@ -1,4 +1,4 @@
-package kz.btokmyrza.cryptomarket.presentation.feature_tabs.pay
+package kz.btokmyrza.cryptomarket.presentation.tabs.pay
 
 import androidx.lifecycle.ViewModel
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.feature_auth.WelcomeFragment">
+    tools:context=".presentation.auth.WelcomeFragment">
 
     <ImageView
         android:id="@+id/ivAppLogoViolet"

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="kz.btokmyrza.cryptomarket.presentation.feature_auth.WelcomeFragment"
+        android:name="kz.btokmyrza.cryptomarket.presentation.auth.WelcomeFragment"
         android:label="fragment_welcome"
         tools:layout="@layout/fragment_welcome">
         <action
@@ -18,26 +18,34 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
         <action
-            android:id="@+id/action_welcomeFragment_to_tabsFragment"
-            app:destination="@id/tabsFragment"
+            android:id="@+id/action_welcomeFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right"
-            app:popUpTo="@id/welcomeFragment"
-            app:popUpToInclusive="true" />
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="kz.btokmyrza.cryptomarket.presentation.feature_auth.SignUpFragment"
+        android:name="kz.btokmyrza.cryptomarket.presentation.auth.sign_up.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" />
 
     <fragment
         android:id="@+id/tabsFragment"
-        android:name="kz.btokmyrza.cryptomarket.presentation.feature_tabs.TabsFragment"
+        android:name="kz.btokmyrza.cryptomarket.presentation.tabs.TabsFragment"
         android:label="fragment_tabs"
         tools:layout="@layout/fragment_tabs" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="kz.btokmyrza.cryptomarket.presentation.auth.login.LoginFragment"
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/action_loginFragment_to_tabsFragment"
+            app:destination="@id/tabsFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
 </navigation>

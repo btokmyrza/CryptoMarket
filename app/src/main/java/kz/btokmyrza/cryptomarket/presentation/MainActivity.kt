@@ -11,7 +11,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import kz.btokmyrza.cryptomarket.R
 import kz.btokmyrza.cryptomarket.databinding.ActivityMainBinding
-import kz.btokmyrza.cryptomarket.presentation.feature_tabs.TabsFragment
+import kz.btokmyrza.cryptomarket.presentation.tabs.TabsFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if (isStartDestination(navController?.currentDestination)) {
+        if ( isStartDestination(navController?.currentDestination)) {
             super.onBackPressed()
         } else {
             navController?.popBackStack()
@@ -107,6 +107,10 @@ class MainActivity : AppCompatActivity() {
         val startDestinations = topLevelDestinations + graph.startDestinationId
         return startDestinations.contains(destination.id)
     }
+
+/*    private fun isSignedIn(): Boolean {
+        return isSignedIn
+    }*/
 
     private fun getMainNavigationGraphId(): Int = R.navigation.main_graph
 

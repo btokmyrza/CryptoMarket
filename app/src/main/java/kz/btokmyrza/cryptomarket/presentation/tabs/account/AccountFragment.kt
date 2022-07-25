@@ -1,22 +1,24 @@
-package kz.btokmyrza.cryptomarket.presentation.feature_auth
+package kz.btokmyrza.cryptomarket.presentation.tabs.account
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kz.btokmyrza.cryptomarket.databinding.FragmentSignUpBinding
+import androidx.fragment.app.Fragment
+import kz.btokmyrza.cryptomarket.databinding.FragmentAccountBinding
 
-class SignUpFragment : Fragment() {
+class AccountFragment : Fragment() {
 
-    private var _binding: FragmentSignUpBinding? = null
+    private var _binding: FragmentAccountBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var viewModel: AccountViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentSignUpBinding.inflate(inflater, container, false)
+        _binding = FragmentAccountBinding.inflate(inflater, container, false)
 
 
 

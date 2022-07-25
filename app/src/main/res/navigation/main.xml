@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="kz.btokmyrza.cryptomarket.presentation.feature_tabs.main.MainFragment"
+        android:name="kz.btokmyrza.cryptomarket.presentation.tabs.main.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
 </navigation>

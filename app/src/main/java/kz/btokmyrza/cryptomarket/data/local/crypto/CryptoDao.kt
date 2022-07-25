@@ -1,4 +1,4 @@
-package kz.btokmyrza.cryptomarket.data.local
+package kz.btokmyrza.cryptomarket.data.local.crypto
 
 import androidx.room.Dao
 
