@@ -6,6 +6,7 @@ import kz.btokmyrza.cryptomarket.data.repository.AuthRepositoryImpl
 import kz.btokmyrza.cryptomarket.domain.repository.AuthRepository
 import kz.btokmyrza.cryptomarket.presentation.auth.login.LoginViewModel
 import kz.btokmyrza.cryptomarket.presentation.auth.sign_up.SignUpViewModel
+import kz.btokmyrza.cryptomarket.presentation.tabs.main.MainTabViewModel
 import kz.btokmyrza.cryptomarket.util.DispatcherProvider
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -35,6 +36,10 @@ val appModule = module {
 
     viewModel {
         LoginViewModel(repository = get(), dispatchers = get())
+    }
+
+    viewModel {
+        MainTabViewModel()
     }
 
 }
