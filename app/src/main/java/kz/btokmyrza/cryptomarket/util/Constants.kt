@@ -10,10 +10,13 @@ object Constants {
 
     // HEADER PARAMETER NAME: X-RapidAPI-Key
     const val API_KEY = "c552648734msh96ed9a0191d2f75p1fefc8jsn8194bab9a883"
-
     // HEADER PARAMETER NAME: X-RapidAPI-Host
     const val API_HOST = "coinranking1.p.rapidapi.com"
     const val BASE_URL = "https://coinranking1.p.rapidapi.com/"
+
+    // Stocks API
+    const val STOCKS_API_KEY = "XTH5Q3Q3ETE1H9P2"
+    const val STOCKS_API_BASE_URL = "https://www.alphavantage.co/"
 
     val CREDIT_CARDS = listOf(
         CreditCard(

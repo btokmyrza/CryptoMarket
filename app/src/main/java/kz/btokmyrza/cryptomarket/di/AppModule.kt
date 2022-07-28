@@ -26,10 +26,6 @@ val appModule = module {
         }
     }
 
-    single<AuthRepository> {
-        AuthRepositoryImpl(db = get())
-    }
-
     viewModel {
         SignUpViewModel(repository = get(), dispatchers = get())
     }
