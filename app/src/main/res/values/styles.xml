@@ -30,6 +30,94 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="title_profile_tv">
+        <item name="android:textSize">17sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="subtitle_profile_tv">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="TabTextStyle">
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+    </style>
+
+    <style name="total_balance_tv">
+        <item name="android:textSize">13sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#66222326</item>
+    </style>
+
+    <style name="balance_amount_tv">
+        <item name="android:textSize">34sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="suggested_tv">
+        <item name="android:textSize">22sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="nord_bank_tv">
+        <item name="android:textSize">13sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#80FFFFFF</item>
+    </style>
+
+    <style name="card_description_tv">
+        <item name="android:textSize">17sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="latest_transaction_tv">
+        <item name="android:textSize">22sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="see_all_tv">
+        <item name="android:textSize">17sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">#664DB1</item>
+    </style>
+
+    <style name="transaction_title_tv">
+        <item name="android:textSize">17sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="transaction_description_tv">
+        <item name="android:textSize">15sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+    </style>
+
+    <style name="dollar_tv">
+        <item name="android:textSize">17sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+
+    <style name="incomes_tv">
+        <item name="android:textSize">13sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#66222326</item>
+    </style>
+
+    <style name="incomes_amount_tv">
+        <item name="android:textSize">22sp</item>
+        <item name="android:letterSpacing">-0.01</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+    
     <style name="MainFragmentButton" parent="ThemeOverlay.AppCompat">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>

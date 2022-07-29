@@ -82,4 +82,6 @@ dependencies {
     // OpenCSV
     implementation 'com.opencsv:opencsv:5.5.2'
 
+    // charts
+    implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
 }
