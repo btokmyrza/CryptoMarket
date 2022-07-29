@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="sign_up_hint">#66222326</color>
+    <color name="transaction_added">#68B259</color>
 </resources>
