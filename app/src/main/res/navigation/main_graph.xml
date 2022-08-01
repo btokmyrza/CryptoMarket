@@ -36,7 +36,7 @@
         android:id="@+id/tabsFragment"
         android:name="kz.btokmyrza.cryptomarket.presentation.tabs.TabsFragment"
         android:label="fragment_tabs"
-        tools:layout="@layout/fragment_tabs" />
+        tools:layout="@layout/fragment_tabs"/>
     <fragment
         android:id="@+id/loginFragment"
         android:name="kz.btokmyrza.cryptomarket.presentation.auth.login.LoginFragment"

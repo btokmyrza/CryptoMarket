@@ -5,80 +5,57 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import kz.btokmyrza.cryptomarket.R
-import kz.btokmyrza.cryptomarket.domain.model.stocks.StockAdd
 import kz.btokmyrza.cryptomarket.domain.model.stocks.StockInfo
-import kz.btokmyrza.cryptomarket.domain.model.stocks.StockItem
 
-class StocksAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class StocksAdapter : RecyclerView.Adapter<StocksAdapter.StocksInfoViewHolder>() {
 
     inner class StocksInfoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
-    inner class StocksAddViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
-    var stockItems = mutableListOf<StockItem>()
+    private val diffCallback = object : DiffUtil.ItemCallback<StockInfo>() {
+        override fun areItemsTheSame(oldItem: StockInfo, newItem: StockInfo): Boolean {
+            return oldItem.id == newItem.id
+        }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        return when (viewType) {
-            R.layout.rv_item_stock_add -> StocksAddViewHolder(
-                inflater.inflate(
-                    R.layout.rv_item_stock_add,
-                    parent,
-                    false
-                )
-            )
-            R.layout.rv_item_stock_chip -> StocksInfoViewHolder(
-                inflater.inflate(
-                    R.layout.rv_item_stock_chip,
-                    parent,
-                    false
-                )
-            )
-            else -> StocksInfoViewHolder(
-                inflater.inflate(
-                    R.layout.rv_item_stock_chip,
-                    parent,
-                    false
-                )
-            )
+        override fun areContentsTheSame(oldItem: StockInfo, newItem: StockInfo): Boolean {
+            return oldItem.hashCode() == newItem.hashCode()
         }
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return if (position == 0) {
-            R.layout.rv_item_stock_add
-        } else {
-            R.layout.rv_item_stock_chip
-        }
+    val differ = AsyncListDiffer(this, diffCallback)
+
+    var stockItems: List<StockInfo>
+        get() = differ.currentList
+        set(value) = differ.submitList(value)
+
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StocksInfoViewHolder {
+        return StocksInfoViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.rv_item_stock_chip,
+                parent,
+                false
+            )
+        )
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when (val stockItem = stockItems[position]) {
-            is StockInfo -> {
-                holder.itemView.apply {
-                    val tvStockName = this.findViewById<TextView>(R.id.tvStockName)
-                    val ivStockDirection = this.findViewById<ImageView>(R.id.ivStockDirection)
-                    val tvStockChangeAmount = this.findViewById<TextView>(R.id.tvStockChangeAmount)
+    override fun onBindViewHolder(holder: StocksAdapter.StocksInfoViewHolder, position: Int) {
+        val stockItem = stockItems[position]
+        holder.itemView.apply {
+            val tvStockCompanyName = findViewById<TextView>(R.id.tvStockCompanyName)
+            val ivStockDirection = findViewById<ImageView>(R.id.ivStockDirection)
+            val tvStockSymbol = findViewById<TextView>(R.id.tvStockSymbol)
 
-                    tvStockName.text = stockItem.stockName
-                    ivStockDirection.setImageResource(stockItem.stockDirection)
-                    tvStockChangeAmount.text = stockItem.stockChangeAmount
+            tvStockCompanyName.text = stockItem.stockName
+            ivStockDirection.setImageResource(stockItem.stockDirection)
+            tvStockSymbol.text = stockItem.stockSymbol
 
-                    setOnClickListener {
-                        onStockInfoClickListener?.let { click ->
-                            click(stockItem)
-                        }
-                    }
-                }
-            }
-            is StockAdd -> {
-                holder.itemView.apply {
-                    setOnClickListener {
-                        onStockAddClickListener?.let { click ->
-                            click(stockItem)
-                        }
-                    }
+            setOnClickListener {
+                onStockInfoClickListener?.let { click ->
+                    click(stockItem)
                 }
             }
         }
@@ -90,18 +67,7 @@ class StocksAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         onStockInfoClickListener = listener
     }
 
-    private var onStockAddClickListener: ((StockAdd) -> Unit)? = null
-
-    fun setStockAddClickListener(listener: (StockAdd) -> Unit) {
-        onStockAddClickListener = listener
+    override fun getItemCount(): Int {
+        return stockItems.size
     }
-
-    override fun getItemCount(): Int = stockItems.size
-
-    fun setItems(list: List<StockItem>) {
-        stockItems.clear()
-        stockItems.addAll(list)
-        notifyDataSetChanged()
-    }
-
 }

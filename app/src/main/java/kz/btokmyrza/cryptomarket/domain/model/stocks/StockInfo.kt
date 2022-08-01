@@ -6,5 +6,5 @@ data class StockInfo(
     val id: Int,
     val stockName: String,
     @DrawableRes val stockDirection: Int,
-    val stockChangeAmount: String,
+    val stockSymbol: String,
 ) : StockItem
