@@ -35,7 +35,7 @@ class StocksAdapter : RecyclerView.Adapter<StocksAdapter.StocksInfoViewHolder>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StocksInfoViewHolder {
         return StocksInfoViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.rv_item_stock_chip,
+                R.layout.rv_item_main_tab_stock_chip,
                 parent,
                 false
             )

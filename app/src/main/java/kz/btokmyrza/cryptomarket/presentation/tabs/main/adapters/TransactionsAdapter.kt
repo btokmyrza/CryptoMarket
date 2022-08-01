@@ -36,7 +36,7 @@ class TransactionsAdapter : RecyclerView.Adapter<TransactionsAdapter.Transaction
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionsViewHolder {
         return TransactionsViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.rv_item_transaction,
+                R.layout.rv_item_main_tab_transaction,
                 parent,
                 false
             )

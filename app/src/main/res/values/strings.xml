@@ -42,4 +42,8 @@
     <string name="see_all_main"><![CDATA[See all >]]></string>
     <string name="market">MARKET</string>
     <string name="current_price">current price</string>
+    <string name="payments">Payments</string>
+    <string name="search">Search</string>
+    <string name="templates">Templates</string>
+    <string name="add">Add</string>
 </resources>

@@ -34,7 +34,7 @@ class CreditCardsAdapter : RecyclerView.Adapter<CreditCardsAdapter.CreditCardsVi
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CreditCardsViewHolder {
         return CreditCardsViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.rv_item_credit_card,
+                R.layout.rv_item_main_tab_credit_card,
                 parent,
                 false
             )
