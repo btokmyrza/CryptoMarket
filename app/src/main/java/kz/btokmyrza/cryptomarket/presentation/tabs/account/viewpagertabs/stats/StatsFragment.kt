@@ -11,6 +11,7 @@ import com.anychart.chart.common.dataentry.DataEntry
 import com.anychart.chart.common.dataentry.ValueDataEntry
 import kz.btokmyrza.cryptomarket.R
 import kz.btokmyrza.cryptomarket.databinding.FragmentStatsBinding
+import kz.btokmyrza.cryptomarket.domain.model.Statistics
 import java.util.*
 
 class StatsFragment : Fragment() {
@@ -39,7 +40,7 @@ class StatsFragment : Fragment() {
         binding.rvStats.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-
+        statsAdapter.setStats(getMockStats())
     }
 
     private fun createLineChart() {
@@ -54,4 +55,11 @@ class StatsFragment : Fragment() {
         binding.chartView.setChart(lineChart)
     }
 
+    private fun getMockStats(): List<Statistics> =
+        listOf(
+            Statistics(name = "Alan Denver", amount = "+$280.00"),
+            Statistics(name = "Airline Ticket", amount = "-$756.00"),
+            Statistics(name = "House Rent", amount = "-$150.00"),
+            Statistics(name = "Investing", amount = "+$15.00"),
+        )
 }
