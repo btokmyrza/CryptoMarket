@@ -18,7 +18,7 @@ class AccountFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAccountBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -31,7 +31,6 @@ class AccountFragment : Fragment() {
             when (position) {
                 0 -> {
                     tab.text = "General"
-
                 }
                 1 -> tab.text = "Stats"
                 2 -> tab.text = "Cards"

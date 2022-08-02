@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL
+import kz.btokmyrza.cryptomarket.R
 import kz.btokmyrza.cryptomarket.databinding.FragmentMainTabBinding
 import kz.btokmyrza.cryptomarket.presentation.tabs.main.adapters.CreditCardsAdapter
 import kz.btokmyrza.cryptomarket.presentation.tabs.main.adapters.StocksAdapter
@@ -58,7 +60,17 @@ class MainTabFragment : Fragment() {
         rvStocks.layoutManager = layoutManager
 
         mainTabViewModel.stockItems.observe(viewLifecycleOwner) { stockItems ->
-            stocksAdapter.setItems(stockItems)
+            stocksAdapter.stockItems = stockItems
+        }
+
+        stocksAdapter.setStockInfoClickListener {
+            findNavController().navigate(
+                R.id.action_mainFragment_to_stockDetailFragment,
+                Bundle().apply {
+                    putString("stockSymbol", it.stockSymbol)
+                    putString("stockName", it.stockName)
+                }
+            )
         }
     }
 

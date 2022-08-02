@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.tabs.main.stock_detail.StockDetailFragment">
+
+    <ImageButton
+        android:id="@+id/ibBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:padding="12dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCompanyLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:background="@drawable/ic_company_logo_background"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ibBack"
+        tools:text="A" />
+
+    <TextView
+        android:id="@+id/tvCompanySymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:gravity="center"
+        android:lineHeight="22dp"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvCompanyLogo"
+        app:layout_constraintTop_toTopOf="@+id/tvCompanyLogo"
+        tools:text="AAPL" />
+
+    <TextView
+        android:id="@+id/tvCompanyName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:ellipsize="end"
+        android:lineHeight="16dp"
+        android:maxLines="1"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/btnMarket"
+        app:layout_constraintStart_toEndOf="@+id/tvCompanyLogo"
+        app:layout_constraintTop_toBottomOf="@+id/tvCompanySymbol"
+        tools:text="Apple Inc." />
+
+    <Button
+        android:id="@+id/btnMarket"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:background="@null"
+        android:backgroundTint="#F2F2F2"
+        android:text="@string/market"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCompanyLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvCompanyLogo" />
+
+    <View
+        android:id="@+id/vBottomLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="8dp"
+        android:background="#0D28262F"
+        app:layout_constraintTop_toBottomOf="@+id/tvCompanyLogo"
+        tools:layout_editor_absoluteX="8dp" />
+
+    <TextView
+        android:id="@+id/tvCurrentPriceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="24dp"
+        android:text="@string/current_price"
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vBottomLine" />
+
+    <TextView
+        android:id="@+id/tvCurrentPriceAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:gravity="center"
+        android:lineHeight="40dp"
+        android:text="115.42 USD"
+        android:textColor="#000000"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCurrentPriceText" />
+
+    <com.anychart.AnyChartView
+        android:id="@+id/anvStocksValue"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginVertical="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCurrentPriceAmount" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

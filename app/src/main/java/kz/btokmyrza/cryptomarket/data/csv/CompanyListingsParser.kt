@@ -7,7 +7,7 @@ import kz.btokmyrza.cryptomarket.domain.model.CompanyListing
 import java.io.InputStream
 import java.io.InputStreamReader
 
-class CompanyListingsParser : CSVParser<CompanyListing> {
+class CompanyListingsParser() : CSVParser<CompanyListing> {
 
     override suspend fun parse(stream: InputStream): List<CompanyListing> {
         val csvReader = CSVReader(InputStreamReader(stream))

@@ -41,19 +41,19 @@ object Constants {
             id = 1,
             stockName = "USD",
             stockDirection = R.drawable.ic_trending_up,
-            stockChangeAmount = "+1.56%"
+            stockSymbol = "+1.56%"
         ),
         StockInfo(
             id = 2,
             stockName = "BTC",
             stockDirection = R.drawable.ic_trending_down,
-            stockChangeAmount = "-1.08%"
+            stockSymbol = "-1.08%"
         ),
         StockInfo(
             id = 3,
             stockName = "AAPL",
             stockDirection = R.drawable.ic_trending_up,
-            stockChangeAmount = "+1.24%"
+            stockSymbol = "+1.24%"
         )
     )
 
