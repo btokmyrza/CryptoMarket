@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="8dp">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvImageTransaction"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:id="@+id/cvCardTransaction"
+        android:layout_width="19.2dp"
+        android:layout_height="19.2dp"
         android:layout_marginStart="12dp"
-        app:cardCornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/ivProfileImage"
+            android:id="@+id/ivTransactionCheckBox"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/img_user2" />
+            tools:src="@drawable/img_checkbox" />
 
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/tvTransactionName"
+        android:id="@+id/tvCardTransactionName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -32,41 +32,30 @@
         android:lineSpacingExtra="2sp"
         android:text="@string/transaction_title"
         android:textAppearance="@style/transaction_title_tv"
-        app:layout_constraintStart_toEndOf="@id/cvImageTransaction"
+        app:layout_constraintStart_toEndOf="@id/cvCardTransaction"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvTransactionDetail"
+        android:id="@+id/tvCardTransactionDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:lineSpacingExtra="2sp"
         android:text="@string/transaction_detail"
         android:textAppearance="@style/transaction_description_tv"
-        app:layout_constraintStart_toStartOf="@id/tvTransactionName"
-        app:layout_constraintTop_toBottomOf="@id/tvTransactionName" />
+        app:layout_constraintStart_toStartOf="@id/tvCardTransactionName"
+        app:layout_constraintTop_toBottomOf="@id/tvCardTransactionName" />
 
     <TextView
-        android:id="@+id/tvDollarAmount"
+        android:id="@+id/tvCardDollarAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
         android:lineSpacingExtra="2sp"
         android:text="@string/dollar_amount"
         android:textAppearance="@style/dollar_tv"
-        app:layout_constraintBottom_toBottomOf="@id/cvImageTransaction"
+        app:layout_constraintBottom_toBottomOf="@id/cvCardTransaction"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/cvImageTransaction" />
+        app:layout_constraintTop_toTopOf="@id/cvCardTransaction" />
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="15dp"
-        android:alpha="0.1"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cvImageTransaction" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
