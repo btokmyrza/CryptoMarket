@@ -32,7 +32,6 @@ class TradeFragment : Fragment() {
             when (position) {
                 0 -> tab.text = "Main"
                 1 -> tab.text = "Market"
-                2 -> tab.text = "Portfolio"
             }
         }.attach()
     }

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kz.btokmyrza.cryptomarket.R
 import kz.btokmyrza.cryptomarket.databinding.FragmentMainTradeBinding
 import kz.btokmyrza.cryptomarket.domain.model.Currency
+import kz.btokmyrza.cryptomarket.domain.model.Watchlist
 
 class MainTradeFragment : Fragment() {
 
@@ -31,7 +32,12 @@ class MainTradeFragment : Fragment() {
     }
 
     private fun setupWatchListRecyclerView() {
+        val watchListAdapter = WatchListAdapter()
+        binding.rvWatchList.adapter = watchListAdapter
+        binding.rvWatchList.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
+        watchListAdapter.setWatchLists(getMockWatchLists())
     }
 
     private fun setupCurrencyRecyclerView() {
@@ -49,6 +55,14 @@ class MainTradeFragment : Fragment() {
             Currency("USD", "7600.00", R.drawable.img_currency),
             Currency("EUR", "421.22", R.drawable.img_currency),
             Currency("BTC", "0.0002", R.drawable.img_currency)
+        )
+
+    private fun getMockWatchLists(): List<Watchlist> =
+        listOf(
+            Watchlist("XRP", "XRP", "$0.27", "-0.5%", R.drawable.img_xrp),
+            Watchlist("Bitcoin Cash", "BCH", "$255.85", "-0.13%", R.drawable.img_bch),
+            Watchlist("Digibyte", "DGB", "$0.0189", "-1.05%", R.drawable.img_dgb),
+            Watchlist("Litecoin", "LTC", "$67.07", "+5.75%", R.drawable.img_ltc),
         )
 
     override fun onDestroyView() {
