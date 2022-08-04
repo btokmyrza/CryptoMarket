@@ -7,13 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import kz.btokmyrza.cryptomarket.databinding.FragmentTradeBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class TradeFragment : Fragment() {
 
     private var _binding: FragmentTradeBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var viewModel: TradeViewModel
+    private val tradeViewModel by viewModel<TradeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

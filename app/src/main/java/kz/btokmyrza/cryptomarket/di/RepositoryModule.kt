@@ -4,10 +4,12 @@ import kz.btokmyrza.cryptomarket.data.csv.CSVParser
 import kz.btokmyrza.cryptomarket.data.csv.CompanyListingsParser
 import kz.btokmyrza.cryptomarket.data.csv.IntradayInfoParser
 import kz.btokmyrza.cryptomarket.data.repository.AuthRepositoryImpl
+import kz.btokmyrza.cryptomarket.data.repository.CoinRepositoryImpl
 import kz.btokmyrza.cryptomarket.data.repository.StockRepositoryImpl
 import kz.btokmyrza.cryptomarket.domain.model.CompanyListing
 import kz.btokmyrza.cryptomarket.domain.model.IntradayInfo
 import kz.btokmyrza.cryptomarket.domain.repository.AuthRepository
+import kz.btokmyrza.cryptomarket.domain.repository.CoinRepository
 import kz.btokmyrza.cryptomarket.domain.repository.StockRepository
 import org.koin.core.qualifier.named
 import org.koin.dsl.bind
@@ -25,6 +27,10 @@ val repositoryModule = module {
 
     single<AuthRepository> {
         AuthRepositoryImpl(db = get())
+    }
+
+    single<CoinRepository> {
+        CoinRepositoryImpl(api = get())
     }
 
     single<StockRepository> {

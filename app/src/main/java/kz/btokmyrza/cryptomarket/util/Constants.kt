@@ -11,6 +11,9 @@ object Constants {
     const val STOCKS_API_KEY = "2UYHJ3S01RGB24O8"
     const val STOCKS_API_BASE_URL = "https://www.alphavantage.co/"
 
+    // Crypto API
+    const val CRYPTO_API_BASE_URL = "https://api.coinpaprika.com/v1/"
+
     val CREDIT_CARDS = listOf(
         CreditCard(
             id = 0,

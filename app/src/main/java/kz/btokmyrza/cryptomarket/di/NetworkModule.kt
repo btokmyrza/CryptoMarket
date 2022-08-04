@@ -1,11 +1,14 @@
 package kz.btokmyrza.cryptomarket.di
 
+import kz.btokmyrza.cryptomarket.data.remote.CoinPaprikaApi
 import kz.btokmyrza.cryptomarket.data.remote.StockApi
+import kz.btokmyrza.cryptomarket.util.Constants.CRYPTO_API_BASE_URL
 import kz.btokmyrza.cryptomarket.util.Constants.STOCKS_API_BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
@@ -28,6 +31,14 @@ val networkModule = module {
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
             .create(StockApi::class.java)
+    }
+
+    single {
+        Retrofit.Builder()
+            .baseUrl(CRYPTO_API_BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(CoinPaprikaApi::class.java)
     }
 
 }
