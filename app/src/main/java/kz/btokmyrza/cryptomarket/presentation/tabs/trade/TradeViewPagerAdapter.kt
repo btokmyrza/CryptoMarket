@@ -6,7 +6,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import kz.btokmyrza.cryptomarket.presentation.tabs.trade.main.MainTradeFragment
 import kz.btokmyrza.cryptomarket.presentation.tabs.trade.market.MarketTradeFragment
-import kz.btokmyrza.cryptomarket.presentation.tabs.trade.portfolio.PortfolioTradeFragment
 
 class TradeViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
@@ -16,8 +15,7 @@ class TradeViewPagerAdapter(fragmentManager: FragmentManager, lifecycle: Lifecyc
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> MainTradeFragment()
-            1 -> MarketTradeFragment()
-            else -> PortfolioTradeFragment()
+            else -> MarketTradeFragment()
         }
     }
 }
