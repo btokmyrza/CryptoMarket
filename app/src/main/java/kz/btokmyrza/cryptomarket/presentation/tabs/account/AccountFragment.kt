@@ -29,9 +29,7 @@ class AccountFragment : Fragment() {
         binding.viewPager.adapter = AccountViewPagerAdapter(childFragmentManager, lifecycle)
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             when (position) {
-                0 -> {
-                    tab.text = "General"
-                }
+                0 -> tab.text = "General"
                 1 -> tab.text = "Stats"
                 2 -> tab.text = "Cards"
             }
