@@ -7,7 +7,6 @@
     <include app:graph="@navigation/main" />
     <include app:graph="@navigation/trade" />
     <include app:graph="@navigation/pay" />
-    <include app:graph="@navigation/history" />
     <include app:graph="@navigation/account" />
 
 </navigation>
