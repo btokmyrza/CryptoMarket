@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/ivUserStat"
+            android:id="@+id/ivUserStatistics"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/img_user2" />
@@ -24,7 +24,7 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/tvTransactionName"
+        android:id="@+id/tvStatisticsName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toTopOf="@id/cvImageStat" />
 
     <TextView
-        android:id="@+id/tvDollarAmount"
+        android:id="@+id/tvStatisticsDollarAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
