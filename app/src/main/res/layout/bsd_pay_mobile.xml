@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnCancel"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:lineHeight="22dp"
+        android:text="@string/cancel"
+        android:textAllCaps="false"
+        android:textColor="#664DB1"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvPayments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:lineHeight="22dp"
+        android:text="@string/payments"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTransfer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:lineHeight="16dp"
+        android:text="@string/transfer"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvPayments"
+        app:layout_constraintStart_toStartOf="@+id/tvPayments"
+        app:layout_constraintTop_toBottomOf="@+id/tvPayments" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPhoneNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:hint="@string/enter_phone_number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTransfer"
+        app:startIconDrawable="@drawable/ic_person">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietPhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:fontFamily="@font/sf_pro_display_regular"
+            android:inputType="phone" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvSelectedCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:gravity="center"
+        android:lineHeight="16dp"
+        android:text="@string/selected_card"
+        android:textAllCaps="true"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilPhoneNumber" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="12dp"
+        android:background="#0D28262F"
+        android:backgroundTint="#0D28262F"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSelectedCard">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="16dp">
+
+            <ImageView
+                android:id="@+id/ivCardProviderLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="4dp"
+                android:src="@drawable/img_master_card"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvBankName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="8dp"
+                android:text="Nord Bank"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@+id/tvMoneyAmount"
+                app:layout_constraintStart_toEndOf="@+id/ivCardProviderLogo"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvCardDetails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="8dp"
+                android:text="Mastercard • 7682"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvMoneyAmount"
+                app:layout_constraintStart_toEndOf="@+id/ivCardProviderLogo"
+                app:layout_constraintTop_toBottomOf="@+id/tvBankName" />
+
+            <TextView
+                android:id="@+id/tvMoneyAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="32dp"
+                android:paddingEnd="8dp"
+                android:text="$5 870.00"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:gravity="center"
+        android:lineHeight="16dp"
+        android:text="@string/amount"
+        android:textAllCaps="true"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:hint="@string/initial_amount"
+        app:hintTextColor="#66222326"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAmount">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietAmount"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:fontFamily="@font/sf_pro_display_regular"
+            android:inputType="numberDecimal"
+            android:lineHeight="52dp"
+            android:textColor="@color/black"
+            android:textSize="48sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnPay"
+        style="@style/violet_button"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="32dp"
+        android:text="@string/pay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilAmount" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

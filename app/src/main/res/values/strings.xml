@@ -54,4 +54,12 @@
     <string name="watchList_subtitle">XRP</string>
     <string name="watchlist_dollar">$0.27</string>
     <string name="watchlist_dollar_percent">-0.51%</string>
+    <string name="cancel">Cancel</string>
+    <string name="transfer">Transfer</string>
+    <string name="enter_phone_number">Enter phone number</string>
+    <string name="selected_card">Selected card</string>
+    <string name="amount">Amount</string>
+    <string name="initial_amount">$0.00</string>
+    <string name="transfer_to_wallets">Transfer to wallets</string>
+    <string name="internet">Internet</string>
 </resources>

@@ -2,20 +2,13 @@ package kz.btokmyrza.cryptomarket.util
 
 import kz.btokmyrza.cryptomarket.R
 import kz.btokmyrza.cryptomarket.domain.model.CreditCard
+import kz.btokmyrza.cryptomarket.domain.model.Template
 import kz.btokmyrza.cryptomarket.domain.model.Transaction
-import kz.btokmyrza.cryptomarket.domain.model.stocks.StockAdd
-import kz.btokmyrza.cryptomarket.domain.model.stocks.StockInfo
 
 object Constants {
 
-    // HEADER PARAMETER NAME: X-RapidAPI-Key
-    const val API_KEY = "c552648734msh96ed9a0191d2f75p1fefc8jsn8194bab9a883"
-    // HEADER PARAMETER NAME: X-RapidAPI-Host
-    const val API_HOST = "coinranking1.p.rapidapi.com"
-    const val BASE_URL = "https://coinranking1.p.rapidapi.com/"
-
     // Stocks API
-    const val STOCKS_API_KEY = "XTH5Q3Q3ETE1H9P2"
+    const val STOCKS_API_KEY = "2UYHJ3S01RGB24O8"
     const val STOCKS_API_BASE_URL = "https://www.alphavantage.co/"
 
     val CREDIT_CARDS = listOf(
@@ -33,28 +26,6 @@ object Constants {
             cardDetails = "Visa • 8245",
             moneyAmount = "$5 870.00"
         ),
-    )
-
-    val STOCK_ITEMS = listOf(
-        StockAdd(id = 0),
-        StockInfo(
-            id = 1,
-            stockName = "USD",
-            stockDirection = R.drawable.ic_trending_up,
-            stockSymbol = "+1.56%"
-        ),
-        StockInfo(
-            id = 2,
-            stockName = "BTC",
-            stockDirection = R.drawable.ic_trending_down,
-            stockSymbol = "-1.08%"
-        ),
-        StockInfo(
-            id = 3,
-            stockName = "AAPL",
-            stockDirection = R.drawable.ic_trending_up,
-            stockSymbol = "+1.24%"
-        )
     )
 
     val TRANSACTIONS = listOf(
@@ -116,4 +87,30 @@ object Constants {
         )
     )
 
+    val TEMPLATES = listOf(
+        Template(
+            id = 0,
+            templateLogo = R.drawable.template_phone,
+            templateName = "Phone",
+            templateAmount = "$15.00"
+        ),
+        Template(
+            id = 1,
+            templateLogo = R.drawable.template_internet,
+            templateName = "Internet",
+            templateAmount = "$50.00"
+        ),
+        Template(
+            id = 2,
+            templateLogo = R.drawable.template_john,
+            templateName = "John",
+            templateAmount = "$270.00"
+        ),
+        Template(
+            id = 3,
+            templateLogo = R.drawable.template_house_rent,
+            templateName = "House Rent",
+            templateAmount = "$2500.00"
+        ),
+    )
 }
