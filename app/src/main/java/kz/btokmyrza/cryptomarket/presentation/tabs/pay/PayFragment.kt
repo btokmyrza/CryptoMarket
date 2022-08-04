@@ -5,22 +5,41 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import kz.btokmyrza.cryptomarket.databinding.FragmentPayBinding
+import kz.btokmyrza.cryptomarket.presentation.tabs.pay.adapters.TemplatesAdapter
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PayFragment : Fragment() {
 
     private var _binding: FragmentPayBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var viewModel: PayViewModel
+    private val payViewModel by viewModel<PayViewModel>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentPayBinding.inflate(inflater, container, false)
 
+        setupTemplatesRecyclerView()
 
+        binding.tvTransferToCards.setOnClickListener {
+            PayMobileBottomSheet().show(childFragmentManager, null)
+        }
+        binding.tvTransferToWallet.setOnClickListener {
+            PayMobileBottomSheet().show(childFragmentManager, null)
+        }
+
+        binding.tvMobile.setOnClickListener {
+            PayMobileBottomSheet().show(childFragmentManager, null)
+        }
+
+        binding.tvInternet.setOnClickListener {
+            PayMobileBottomSheet().show(childFragmentManager, null)
+        }
 
         return binding.root
     }
@@ -28,6 +47,19 @@ class PayFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun setupTemplatesRecyclerView() {
+        val rvTemplates = binding.rvTemplates
+        val layoutManager =
+            GridLayoutManager(requireContext(), 2, GridLayoutManager.HORIZONTAL, false)
+        val templatesAdapter = TemplatesAdapter()
+        rvTemplates.adapter = templatesAdapter
+        rvTemplates.layoutManager = layoutManager
+
+        payViewModel.templates.observe(viewLifecycleOwner) { templates ->
+            templatesAdapter.templates = templates
+        }
     }
 
 }

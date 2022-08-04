@@ -49,6 +49,16 @@
             android:textColorLink="#FFFFFF" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <View
+        android:id="@+id/vLine1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:background="#0D28262F"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilSearch" />
+
     <TextView
         android:id="@+id/tvTemplatesText"
         android:layout_width="wrap_content"
@@ -63,7 +73,7 @@
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tilSearch" />
+        app:layout_constraintTop_toBottomOf="@+id/vLine1" />
 
     <Button
         android:id="@+id/btnAddTemplates"
@@ -87,6 +97,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTemplatesText" />
 
+    <View
+        android:id="@+id/vLine2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="12dp"
+        android:background="#0D28262F"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvTemplates" />
+
     <TextView
         android:id="@+id/tvPaymentsText"
         android:layout_width="wrap_content"
@@ -101,15 +122,116 @@
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvTemplates" />
+        app:layout_constraintTop_toBottomOf="@+id/vLine2" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvPayments"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPaymentsText" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPaymentsText">
+
+        <ImageView
+            android:id="@+id/ivTransferToCards"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/payments_cards"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tvTransferToCards"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display_regular"
+            android:lineHeight="22dp"
+            android:paddingHorizontal="12dp"
+            android:text="Transfer to cards"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivTransferToCards"
+            app:layout_constraintStart_toEndOf="@+id/ivTransferToCards"
+            app:layout_constraintTop_toTopOf="@+id/ivTransferToCards" />
+
+        <ImageView
+            android:id="@+id/ivTransferToWallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/payments_wallet"
+            app:layout_constraintBottom_toTopOf="@+id/ivMobile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivTransferToCards" />
+
+        <TextView
+            android:id="@+id/tvTransferToWallet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display_regular"
+            android:lineHeight="22dp"
+            android:paddingHorizontal="12dp"
+            android:text="@string/transfer_to_wallets"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivTransferToWallet"
+            app:layout_constraintStart_toEndOf="@+id/ivTransferToWallet"
+            app:layout_constraintTop_toTopOf="@+id/ivTransferToWallet" />
+
+        <ImageView
+            android:id="@+id/ivMobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/payments_mobile"
+            app:layout_constraintBottom_toTopOf="@+id/ivInternet"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivTransferToWallet" />
+
+        <TextView
+            android:id="@+id/tvMobile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display_regular"
+            android:lineHeight="22dp"
+            android:paddingHorizontal="12dp"
+            android:text="Mobile"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivMobile"
+            app:layout_constraintStart_toEndOf="@+id/ivMobile"
+            app:layout_constraintTop_toTopOf="@+id/ivMobile" />
+
+        <ImageView
+            android:id="@+id/ivInternet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/payments_internet"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivMobile" />
+
+        <TextView
+            android:id="@+id/tvInternet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display_regular"
+            android:lineHeight="22dp"
+            android:paddingHorizontal="12dp"
+            android:text="@string/internet"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivInternet"
+            app:layout_constraintStart_toEndOf="@+id/ivInternet"
+            app:layout_constraintTop_toTopOf="@+id/ivInternet" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

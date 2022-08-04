@@ -1,5 +1,6 @@
 package kz.btokmyrza.cryptomarket.data.repository
 
+import android.util.Log
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kz.btokmyrza.cryptomarket.data.csv.CSVParser

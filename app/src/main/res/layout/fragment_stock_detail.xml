@@ -7,27 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".presentation.tabs.main.stock_detail.StockDetailFragment">
 
-    <ImageButton
-        android:id="@+id/ibBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:padding="12dp"
-        android:src="@drawable/ic_back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/tvCompanyLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/ic_company_logo_background"
         android:gravity="center"
         android:textColor="#000000"
         android:textSize="17sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ibBack"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="A" />
 
     <TextView

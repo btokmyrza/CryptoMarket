@@ -9,10 +9,8 @@ import kz.btokmyrza.cryptomarket.data.mapper.toStockInfo
 import kz.btokmyrza.cryptomarket.domain.model.CreditCard
 import kz.btokmyrza.cryptomarket.domain.model.Transaction
 import kz.btokmyrza.cryptomarket.domain.model.stocks.StockInfo
-import kz.btokmyrza.cryptomarket.domain.model.stocks.StockItem
 import kz.btokmyrza.cryptomarket.domain.repository.StockRepository
 import kz.btokmyrza.cryptomarket.util.Constants.CREDIT_CARDS
-import kz.btokmyrza.cryptomarket.util.Constants.STOCK_ITEMS
 import kz.btokmyrza.cryptomarket.util.Constants.TRANSACTIONS
 import kz.btokmyrza.cryptomarket.util.Resource
 

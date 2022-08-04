@@ -1,6 +1,7 @@
 package kz.btokmyrza.cryptomarket.presentation.tabs.main.stock_detail
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -53,12 +54,15 @@ class StockDetailFragment : Fragment() {
         cartesian.tooltip().positionMode(TooltipPositionMode.POINT)
         cartesian.yAxis(0).title("")
         cartesian.xAxis(0).labels().padding(5.0, 5.0, 5.0, 5.0)
-
-        val set = Set.instantiate()
+        cartesian.legend().enabled(true)
+        cartesian.legend().fontSize(13.0)
+        cartesian.legend().padding(0.0, 0.0, 10.0, 0.0)
 
         stockDetailViewModel.stockInfos.observe(viewLifecycleOwner) { stockInfos ->
             val seriesData = stockInfos.map { CustomDataEntry(it.date.hour.toString(), it.close) }
+            val set = Set.instantiate()
             set.data(seriesData)
+
             val series1Mapping: Mapping = set.mapAs("{ x: 'x', value: 'value' }")
             val series1 = cartesian.line(series1Mapping)
             series1.name(stockSymbol)
@@ -73,13 +77,14 @@ class StockDetailFragment : Fragment() {
                 .offsetX(5.0)
                 .offsetY(5.0)
 
-            binding.tvCurrentPriceAmount.text =
-                "${stockInfos.last().close.roundToInt() / 100.0} USD"
-        }
+            val currentPrice = if (stockInfos.isNotEmpty()) {
+                stockInfos.last().close.roundToInt() / 100.0
+            } else {
+                0.00
+            }
 
-        cartesian.legend().enabled(true)
-        cartesian.legend().fontSize(13.0)
-        cartesian.legend().padding(0.0, 0.0, 10.0, 0.0)
+            binding.tvCurrentPriceAmount.text = "${currentPrice} USD"
+        }
 
         binding.anvStocksValue.setChart(cartesian)
 
