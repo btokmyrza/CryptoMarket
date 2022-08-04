@@ -46,4 +46,12 @@
     <string name="search">Search</string>
     <string name="templates">Templates</string>
     <string name="add">Add</string>
+    <string name="wallet">Wallet</string>
+    <string name="currency_title">BTC</string>
+    <string name="currency_subtitle">0.002</string>
+    <string name="watchList">WatchList</string>
+    <string name="watchList_title">XRP</string>
+    <string name="watchList_subtitle">XRP</string>
+    <string name="watchlist_dollar">$0.27</string>
+    <string name="watchlist_dollar_percent">-0.51%</string>
 </resources>

@@ -56,11 +56,28 @@ class GeneralFragment : Fragment() {
 
     private fun getMockTransactions(): List<TransactionProfile> =
         listOf(
-            TransactionProfile(name = "Anna Enfield", detail = "Mastercard ~ 7682", amount = "-$700.00"),
-            TransactionProfile(name = "Coffee Street 3B", detail = "Visa ~ 8245", amount = "-$12.00"),
+            TransactionProfile(
+                name = "Anna Enfield",
+                detail = "Mastercard ~ 7682",
+                amount = "-$700.00"
+            ),
+            TransactionProfile(
+                name = "Coffee Street 3B",
+                detail = "Visa ~ 8245",
+                amount = "-$12.00"
+            ),
             TransactionProfile(name = "COS", detail = "Mastercard ~ 7682", amount = "-$200.00"),
             TransactionProfile(name = "Spotify", detail = "Mastercard ~ 7682", amount = "-$10.00"),
             TransactionProfile(name = "Shopping", detail = "Visa ~ 4528", amount = "-$200.00"),
-            TransactionProfile(name = "Investing", detail = "Mastercard ~ 9465", amount = "+$70.00"),
+            TransactionProfile(
+                name = "Investing",
+                detail = "Mastercard ~ 9465",
+                amount = "+$70.00"
+            ),
         )
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
