@@ -10,18 +10,21 @@
         android:id="@+id/tvExchange"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginVertical="16dp"
+        android:layout_marginStart="16dp"
         android:text="@string/exchange"
         android:textAppearance="@style/exchange_tv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/ivBellInTrade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
+        android:background="@null"
+        android:backgroundTint="@null"
         android:src="@drawable/img_bell"
         app:layout_constraintBottom_toBottomOf="@id/tvExchange"
         app:layout_constraintEnd_toEndOf="parent"

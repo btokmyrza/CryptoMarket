@@ -7,6 +7,7 @@ import kz.btokmyrza.cryptomarket.presentation.auth.sign_up.SignUpViewModel
 import kz.btokmyrza.cryptomarket.presentation.tabs.main.MainTabViewModel
 import kz.btokmyrza.cryptomarket.presentation.tabs.main.stock_detail.StockDetailViewModel
 import kz.btokmyrza.cryptomarket.presentation.tabs.pay.PayViewModel
+import kz.btokmyrza.cryptomarket.presentation.tabs.trade.TradeViewModel
 import kz.btokmyrza.cryptomarket.util.DispatcherProvider
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -40,6 +41,10 @@ val appModule = module {
 
     viewModel {
         StockDetailViewModel(repository = get())
+    }
+
+    viewModel {
+        TradeViewModel(repository = get())
     }
 
     viewModel {

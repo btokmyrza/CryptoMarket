@@ -51,7 +51,7 @@
         android:fontFamily="@font/sf_pro_display_regular"
         android:gravity="center"
         android:lineHeight="40dp"
-        android:text="Hi Name,"
+        android:text="Hi,"
         android:textColor="#000000"
         android:textSize="22sp"
         android:textStyle="bold"

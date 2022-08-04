@@ -14,8 +14,6 @@ class TradeFragment : Fragment() {
     private var _binding: FragmentTradeBinding? = null
     private val binding get() = _binding!!
 
-    private val tradeViewModel by viewModel<TradeViewModel>()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
