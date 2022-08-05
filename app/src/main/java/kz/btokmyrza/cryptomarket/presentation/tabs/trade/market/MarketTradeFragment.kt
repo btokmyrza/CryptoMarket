@@ -10,7 +10,6 @@ import kz.btokmyrza.cryptomarket.data.mapper.toCryptoCurrency
 import kz.btokmyrza.cryptomarket.databinding.FragmentMarketTradeBinding
 import kz.btokmyrza.cryptomarket.presentation.tabs.trade.TradeViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MarketTradeFragment : Fragment() {
 
@@ -38,6 +37,12 @@ class MarketTradeFragment : Fragment() {
         binding.rvCryptoCurrency.adapter = cryptoCurrencyAdapter
         binding.rvCryptoCurrency.layoutManager = LinearLayoutManager(requireContext())
 
+        cryptoCurrencyAdapter.setClickListener(object : OnCryptoClickListener{
+            override fun openDetailDialog() {
+
+            }
+        })
+
         tradeViewModel.coins.observe(viewLifecycleOwner) { coins ->
             cryptoCurrencyAdapter.setCryptoCurrencies(coins.map { it.toCryptoCurrency() })
         }
@@ -47,6 +52,7 @@ class MarketTradeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 
     /*    private fun getMockCryptoCurrencies(): List<CryptoCurrency> = listOf(
         CryptoCurrency("Bitcoin", "BTC", "$16 195.04", "+0.68%", R.drawable.img_bitcoin),

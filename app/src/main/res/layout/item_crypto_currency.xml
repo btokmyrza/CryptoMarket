@@ -17,11 +17,12 @@
 
     <TextView
         android:id="@+id/tvCryptoCurrencyTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/watchList_title"
         android:textAppearance="@style/dollar_tv"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/ivCryptoCurrencyLogo"
         app:layout_constraintTop_toTopOf="@id/ivCryptoCurrencyLogo" />
 
