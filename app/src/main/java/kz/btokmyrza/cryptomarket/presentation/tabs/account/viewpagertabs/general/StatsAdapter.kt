@@ -1,4 +1,4 @@
-package kz.btokmyrza.cryptomarket.presentation.tabs.account.viewpagertabs.stats
+package kz.btokmyrza.cryptomarket.presentation.tabs.account.viewpagertabs.general
 
 import android.graphics.Color
 import android.view.LayoutInflater

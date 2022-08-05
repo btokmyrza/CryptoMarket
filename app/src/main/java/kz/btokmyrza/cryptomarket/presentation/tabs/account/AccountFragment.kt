@@ -1,12 +1,15 @@
 package kz.btokmyrza.cryptomarket.presentation.tabs.account
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import kz.btokmyrza.cryptomarket.databinding.FragmentAccountBinding
+import kz.btokmyrza.cryptomarket.util.Constants.CURRENT_USER
 
 class AccountFragment : Fragment() {
 
@@ -20,6 +23,9 @@ class AccountFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentAccountBinding.inflate(inflater, container, false)
+
+        binding.tvProfileEmail.text = getSavedEmail()
+
         return binding.root
     }
 
@@ -39,6 +45,14 @@ class AccountFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun getSavedEmail(): String {
+        val prefs = requireContext().getSharedPreferences(
+            CURRENT_USER,
+            AppCompatActivity.MODE_PRIVATE
+        )
+        return prefs.getString("email", "ERROR") ?: "ERROR"
     }
 
 }

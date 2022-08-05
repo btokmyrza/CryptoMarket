@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -12,6 +13,7 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 import kz.btokmyrza.cryptomarket.R
 import kz.btokmyrza.cryptomarket.databinding.FragmentLoginBinding
+import kz.btokmyrza.cryptomarket.util.Constants.CURRENT_USER
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginFragment : Fragment() {
@@ -53,6 +55,13 @@ class LoginFragment : Fragment() {
                 ).show()
                 return@setOnClickListener
             }
+
+            val editor = requireContext().getSharedPreferences(
+                CURRENT_USER,
+                AppCompatActivity.MODE_PRIVATE
+            ).edit()
+            editor.putString("email", email)
+            editor.apply()
 
             viewLifecycleOwner.lifecycleScope.launch {
                 loginViewModel.login(email, password)

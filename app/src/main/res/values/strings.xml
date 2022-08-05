@@ -64,4 +64,5 @@
     <string name="internet">Internet</string>
     <string name="market_is_up">Market is up</string>
     <string name="market_percent">+1.70 %</string>
+    <string name="add_card">Add card</string>
 </resources>

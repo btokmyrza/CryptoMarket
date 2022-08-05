@@ -1,14 +1,23 @@
 package kz.btokmyrza.cryptomarket.presentation.tabs.account.viewpagertabs.general
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.anychart.AnyChart
+import com.anychart.chart.common.dataentry.DataEntry
+import com.anychart.chart.common.dataentry.ValueDataEntry
+import com.anychart.charts.Cartesian
+import com.anychart.core.cartesian.series.Column
+import com.anychart.enums.Anchor
+import com.anychart.enums.HoverMode
+import com.anychart.enums.Position
+import com.anychart.enums.TooltipPositionMode
 import kz.btokmyrza.cryptomarket.databinding.FragmentGeneralBinding
 import kz.btokmyrza.cryptomarket.domain.model.Card
-import kz.btokmyrza.cryptomarket.domain.model.TransactionProfile
+
 
 class GeneralFragment : Fragment() {
 
@@ -27,7 +36,12 @@ class GeneralFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupCardRecyclerView()
-        setupTransactionRecyclerView()
+        setupChart()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun setupCardRecyclerView() {
@@ -39,14 +53,6 @@ class GeneralFragment : Fragment() {
         cardAdapter.setCards(getMockCards())
     }
 
-    private fun setupTransactionRecyclerView() {
-        val transactionAdapter = TransactionProfileAdapter()
-        binding.rvVerticalTransaction.adapter = transactionAdapter
-        binding.rvVerticalTransaction.layoutManager = LinearLayoutManager(requireContext())
-
-        transactionAdapter.setTransactions(getMockTransactions())
-    }
-
     private fun getMockCards(): List<Card> =
         listOf(
             Card("Nord Bank", "Fast home delivery of the card and free service"),
@@ -54,30 +60,36 @@ class GeneralFragment : Fragment() {
             Card("Jusan Bank", "Jusan has launched a new project which calls Jusan Junior"),
         )
 
-    private fun getMockTransactions(): List<TransactionProfile> =
-        listOf(
-            TransactionProfile(
-                name = "Anna Enfield",
-                detail = "Mastercard ~ 7682",
-                amount = "-$700.00"
-            ),
-            TransactionProfile(
-                name = "Coffee Street 3B",
-                detail = "Visa ~ 8245",
-                amount = "-$12.00"
-            ),
-            TransactionProfile(name = "COS", detail = "Mastercard ~ 7682", amount = "-$200.00"),
-            TransactionProfile(name = "Spotify", detail = "Mastercard ~ 7682", amount = "-$10.00"),
-            TransactionProfile(name = "Shopping", detail = "Visa ~ 4528", amount = "-$200.00"),
-            TransactionProfile(
-                name = "Investing",
-                detail = "Mastercard ~ 9465",
-                amount = "+$70.00"
-            ),
-        )
+    private fun setupChart() {
+        val cartesian: Cartesian = AnyChart.column()
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        val data: MutableList<DataEntry> = ArrayList()
+        data.add(ValueDataEntry("Incomes", 5690))
+        data.add(ValueDataEntry("Expenses", 2280))
+
+        val column: Column = cartesian.column(data)
+
+        column.color("#8D3AFF")
+
+        column.tooltip()
+            .titleFormat("{%X}")
+            .position(Position.CENTER_BOTTOM)
+            .anchor(Anchor.CENTER_BOTTOM)
+            .offsetX(0.0)
+            .offsetY(5.0)
+            .format("\${%Value}{groupsSeparator: }")
+            .fontColor("#000000")
+
+        cartesian.animation(true)
+
+        cartesian.yScale().minimum(0.0)
+
+        cartesian.yAxis(0).labels().format("\${%Value}{groupsSeparator: }")
+
+        cartesian.tooltip().positionMode(TooltipPositionMode.POINT)
+        cartesian.interactivity().hoverMode(HoverMode.BY_X)
+
+        binding.acvExpenses.setChart(cartesian)
     }
+
 }
