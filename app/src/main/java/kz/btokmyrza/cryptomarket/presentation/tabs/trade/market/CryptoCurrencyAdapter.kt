@@ -10,6 +10,7 @@ class CryptoCurrencyAdapter :
     RecyclerView.Adapter<CryptoCurrencyAdapter.CryptoCurrencyViewHolder>() {
 
     private val cryptoCurrencies = mutableListOf<CryptoCurrency>()
+    private var onCryptoClickListener: OnCryptoClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CryptoCurrencyViewHolder {
         val binding =
@@ -29,6 +30,10 @@ class CryptoCurrencyAdapter :
         notifyDataSetChanged()
     }
 
+    fun setClickListener(onCryptoClickListener: OnCryptoClickListener) {
+        this.onCryptoClickListener = onCryptoClickListener
+    }
+
     inner class CryptoCurrencyViewHolder(private val binding: ItemCryptoCurrencyBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -38,8 +43,11 @@ class CryptoCurrencyAdapter :
             binding.tvCryptoCurrencyDollar.text = cryptoCurrency.amount
             binding.tvCryptoCurrencyDollarPercent.text = cryptoCurrency.progress
             binding.ivCryptoCurrencyLogo.setImageResource(cryptoCurrency.imgId)
-        }
 
+            binding.tvCryptoCurrencyTitle.setOnClickListener {
+                onCryptoClickListener?.openDetailDialog()
+            }
+        }
 
     }
 }
