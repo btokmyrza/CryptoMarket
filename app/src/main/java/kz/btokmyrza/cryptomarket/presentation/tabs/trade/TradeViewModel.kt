@@ -10,8 +10,10 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kz.btokmyrza.cryptomarket.data.mapper.toCoin
 import kz.btokmyrza.cryptomarket.domain.model.Coin
+import kz.btokmyrza.cryptomarket.domain.model.CryptoCurrency
 import kz.btokmyrza.cryptomarket.domain.repository.CoinRepository
 import kz.btokmyrza.cryptomarket.util.Resource
+import org.koin.core.KoinApplication.Companion.init
 import retrofit2.HttpException
 import java.io.IOException
 
@@ -21,6 +23,9 @@ class TradeViewModel(
 
     private val _coins = MutableLiveData<List<Coin>>()
     val coins: LiveData<List<Coin>> = _coins
+
+    private val _currency = MutableLiveData<CryptoCurrency>()
+    val currency: LiveData<CryptoCurrency> = _currency
 
     init {
         getCoins()
@@ -46,6 +51,10 @@ class TradeViewModel(
                 is Resource.Loading -> Unit
             }
         }.launchIn(viewModelScope)
+    }
+
+    fun addToWatchList(cryptoCurrency: CryptoCurrency) {
+        _currency.value = cryptoCurrency
     }
 
 }

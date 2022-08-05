@@ -44,8 +44,8 @@ class CryptoCurrencyAdapter :
             binding.tvCryptoCurrencyDollarPercent.text = cryptoCurrency.progress
             binding.ivCryptoCurrencyLogo.setImageResource(cryptoCurrency.imgId)
 
-            binding.tvCryptoCurrencyTitle.setOnClickListener {
-                onCryptoClickListener?.openDetailDialog()
+            binding.clParentView.setOnClickListener {
+                onCryptoClickListener?.openDetailDialog(cryptoCurrency)
             }
         }
 

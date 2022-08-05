@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kz.btokmyrza.cryptomarket.databinding.ItemWatchlistBinding
+import kz.btokmyrza.cryptomarket.domain.model.CryptoCurrency
 import kz.btokmyrza.cryptomarket.domain.model.Watchlist
 
 class WatchListAdapter : RecyclerView.Adapter<WatchListAdapter.WatchListViewHolder>() {
@@ -22,9 +23,8 @@ class WatchListAdapter : RecyclerView.Adapter<WatchListAdapter.WatchListViewHold
 
     override fun getItemCount(): Int = watchLists.size
 
-    fun setWatchLists(fakeWatchLists: List<Watchlist>) {
-        watchLists.clear()
-        watchLists.addAll(fakeWatchLists)
+    fun add(watchlist: Watchlist) {
+        watchLists.add(0, watchlist)
         notifyDataSetChanged()
     }
 

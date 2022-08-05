@@ -1,6 +1,7 @@
 package kz.btokmyrza.cryptomarket.domain.model
 
 import androidx.annotation.DrawableRes
+import java.io.Serializable
 
 data class CryptoCurrency(
     val name: String,
@@ -8,4 +9,4 @@ data class CryptoCurrency(
     val amount: String,
     val progress: String,
     @DrawableRes val imgId: Int
-)
+): Serializable
