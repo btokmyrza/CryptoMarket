@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import kz.btokmyrza.cryptomarket.data.mapper.toCryptoCurrency
 import kz.btokmyrza.cryptomarket.databinding.FragmentMarketTradeBinding
+import kz.btokmyrza.cryptomarket.domain.model.CryptoCurrency
 import kz.btokmyrza.cryptomarket.presentation.tabs.trade.TradeViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -37,9 +38,9 @@ class MarketTradeFragment : Fragment() {
         binding.rvCryptoCurrency.adapter = cryptoCurrencyAdapter
         binding.rvCryptoCurrency.layoutManager = LinearLayoutManager(requireContext())
 
-        cryptoCurrencyAdapter.setClickListener(object : OnCryptoClickListener{
-            override fun openDetailDialog() {
-
+        cryptoCurrencyAdapter.setClickListener(object : OnCryptoClickListener {
+            override fun openDetailDialog(cryptoCurrency: CryptoCurrency) {
+                AddCryptoBottomSheet.newInstance(cryptoCurrency).show(childFragmentManager, null)
             }
         })
 
