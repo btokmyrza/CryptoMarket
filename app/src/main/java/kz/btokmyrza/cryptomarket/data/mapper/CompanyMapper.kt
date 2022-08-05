@@ -1,6 +1,5 @@
 package kz.btokmyrza.cryptomarket.data.mapper
 
-import androidx.annotation.DrawableRes
 import kz.btokmyrza.cryptomarket.R
 import kz.btokmyrza.cryptomarket.data.local.stock.CompanyListingEntity
 import kz.btokmyrza.cryptomarket.data.remote.dto.CompanyInfoDto

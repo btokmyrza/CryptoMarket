@@ -6,45 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".presentation.tabs.trade.market.MarketTradeFragment">
 
-    <TextView
-        android:id="@+id/tvMarketIsUp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/market_is_up"
-        android:textAppearance="@style/incomes_amount_tv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="64dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="12dp"
-        app:cardBackgroundColor="#26B7B6BB"
-        app:cardCornerRadius="12dp"
-        app:layout_constraintBottom_toBottomOf="@id/tvMarketIsUp"
-        app:layout_constraintStart_toEndOf="@id/tvMarketIsUp"
-        app:layout_constraintTop_toTopOf="@id/tvMarketIsUp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/market_percent"
-            android:textColor="#68B259" />
-
-    </androidx.cardview.widget.CardView>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCryptoCurrency"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvMarketIsUp"
+        app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item_crypto_currency" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

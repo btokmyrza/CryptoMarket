@@ -35,6 +35,8 @@ class MainTabFragment : Fragment() {
         setupStocksRecyclerView()
         setupTransactionsRecyclerView()
 
+        mainTabViewModel.getTransactions()
+
         return binding.root
     }
 

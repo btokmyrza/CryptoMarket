@@ -8,14 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import kz.btokmyrza.cryptomarket.databinding.FragmentPayBinding
 import kz.btokmyrza.cryptomarket.presentation.tabs.pay.adapters.TemplatesAdapter
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class PayFragment : Fragment() {
 
     private var _binding: FragmentPayBinding? = null
     private val binding get() = _binding!!
 
-    private val payViewModel by viewModel<PayViewModel>()
+    private val payViewModel by sharedViewModel<PayViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

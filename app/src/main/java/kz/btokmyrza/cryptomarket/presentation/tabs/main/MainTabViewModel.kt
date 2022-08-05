@@ -6,16 +6,19 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import kz.btokmyrza.cryptomarket.data.mapper.toStockInfo
+import kz.btokmyrza.cryptomarket.data.mapper.toTransaction
 import kz.btokmyrza.cryptomarket.domain.model.CreditCard
 import kz.btokmyrza.cryptomarket.domain.model.Transaction
 import kz.btokmyrza.cryptomarket.domain.model.stocks.StockInfo
 import kz.btokmyrza.cryptomarket.domain.repository.StockRepository
+import kz.btokmyrza.cryptomarket.domain.repository.TransactionsRepository
 import kz.btokmyrza.cryptomarket.util.Constants.CREDIT_CARDS
 import kz.btokmyrza.cryptomarket.util.Constants.TRANSACTIONS
 import kz.btokmyrza.cryptomarket.util.Resource
 
 class MainTabViewModel(
-    private val repository: StockRepository
+    private val stockRepository: StockRepository,
+    private val transactionsRepository: TransactionsRepository,
 ) : ViewModel() {
 
     private val _creditCards = MutableLiveData<List<CreditCard>>().apply {
@@ -26,9 +29,7 @@ class MainTabViewModel(
     private val _stockItems = MutableLiveData<List<StockInfo>>()
     val stockItems: LiveData<List<StockInfo>> = _stockItems
 
-    private val _transactions = MutableLiveData<List<Transaction>>().apply {
-        value = TRANSACTIONS
-    }
+    private val _transactions = MutableLiveData<List<Transaction>>()
     val transactions: LiveData<List<Transaction>> = _transactions
 
     init {
@@ -40,10 +41,10 @@ class MainTabViewModel(
         fetchFromRemote: Boolean = false
     ) {
         viewModelScope.launch {
-            repository
+            stockRepository
                 .getCompanyListings(fetchFromRemote, query)
                 .collect { result ->
-                    when(result) {
+                    when (result) {
                         is Resource.Success -> {
                             result.data?.let { listings ->
                                 _stockItems.postValue(listings.map { it.toStockInfo() })
@@ -53,6 +54,13 @@ class MainTabViewModel(
                         is Resource.Loading -> Unit
                     }
                 }
+        }
+    }
+
+    fun getTransactions() {
+        viewModelScope.launch {
+            val transactions = transactionsRepository.getTransactions().map { it.toTransaction() }
+            _transactions.postValue(transactions)
         }
     }
 

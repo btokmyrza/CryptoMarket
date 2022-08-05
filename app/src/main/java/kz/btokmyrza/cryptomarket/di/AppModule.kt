@@ -36,7 +36,7 @@ val appModule = module {
     }
 
     viewModel {
-        MainTabViewModel(repository = get())
+        MainTabViewModel(stockRepository = get(), transactionsRepository = get())
     }
 
     viewModel {
@@ -48,7 +48,7 @@ val appModule = module {
     }
 
     viewModel {
-        PayViewModel()
+        PayViewModel(repository = get(), dispatchers = get())
     }
 
 }

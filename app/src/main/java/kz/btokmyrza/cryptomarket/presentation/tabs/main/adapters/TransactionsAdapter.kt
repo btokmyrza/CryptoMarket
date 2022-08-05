@@ -1,6 +1,5 @@
 package kz.btokmyrza.cryptomarket.presentation.tabs.main.adapters
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,9 +55,9 @@ class TransactionsAdapter : RecyclerView.Adapter<TransactionsAdapter.Transaction
             tvTransactionCardDetails.text = transaction.transactionCardDetails
             tvTransactionAmount.text = transaction.transactionAmount
             if (transaction.transactionAmount.contains("+"))
-                tvTransactionAmount.setTextColor(getColor(context, R.color.transaction_added))
+                tvTransactionAmount.setTextColor(getColor(context, R.color.transaction_received))
             else
-                tvTransactionAmount.setTextColor(Color.BLACK)
+                tvTransactionAmount.setTextColor(getColor(context, R.color.transaction_spent))
         }
     }
 
