@@ -7,6 +7,9 @@ import kz.btokmyrza.cryptomarket.domain.model.Transaction
 
 object Constants {
 
+    // Shared preferences for currently logged in user
+    const val CURRENT_USER = "CURRENT_USER"
+
     // Stocks API
     const val STOCKS_API_KEY = "2UYHJ3S01RGB24O8"
     const val STOCKS_API_BASE_URL = "https://www.alphavantage.co/"

@@ -65,4 +65,5 @@
     <string name="market_is_up">Market is up</string>
     <string name="market_percent">+1.70 %</string>
     <string name="confirm_currency_to_add">Do you want to add this currency to watchlist?</string>
+    <string name="add_card">Add card</string>
 </resources>

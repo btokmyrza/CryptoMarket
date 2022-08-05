@@ -56,6 +56,11 @@ class PayFragment : Fragment() {
         rvTemplates.adapter = templatesAdapter
         rvTemplates.layoutManager = layoutManager
 
+        templatesAdapter.setTemplateClickListener {
+            // TODO: Pass arguments
+            PayMobileBottomSheet().show(childFragmentManager, null)
+        }
+
         payViewModel.templates.observe(viewLifecycleOwner) { templates ->
             templatesAdapter.templates = templates
         }

@@ -7,55 +7,20 @@
     tools:context=".presentation.tabs.account.viewpagertabs.general.GeneralFragment">
 
     <TextView
-        android:id="@+id/tvTotalBalance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="24dp"
-        android:lineSpacingExtra="0sp"
-        android:text="@string/total_balance"
-        android:textAllCaps="true"
-        android:textAppearance="@style/total_balance_tv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvBalanceAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:lineSpacingExtra="-1sp"
-        android:text="@string/balance_amount"
-        android:textAppearance="@style/balance_amount_tv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTotalBalance" />
-
-    <View
-        android:id="@+id/dividerLine"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="15dp"
-        android:alpha="0.1"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvBalanceAmount" />
-
-    <TextView
         android:id="@+id/tvSuggested"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_margin="16dp"
+        android:fontFamily="@font/sf_pro_display_regular"
         android:gravity="top"
+        android:lineHeight="26dp"
         android:lineSpacingExtra="0sp"
         android:text="@string/suggested"
         android:textAppearance="@style/suggested_tv"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dividerLine" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHorizontalCards"
@@ -73,56 +38,112 @@
         android:id="@+id/dividerLine2"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
         android:alpha="0.1"
         android:background="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rvHorizontalCards" />
 
-    <TextView
-        android:id="@+id/tvLatestTransactions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="24dp"
-        android:lineSpacingExtra="0sp"
-        android:text="@string/latest_transaction"
-        android:textAppearance="@style/latest_transaction_tv"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvIncomes"
+        android:layout_width="167dp"
+        android:layout_height="72dp"
+        android:elevation="2dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/cvExpenses"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dividerLine2" />
+        app:layout_constraintTop_toBottomOf="@+id/dividerLine2">
 
-    <ImageView
-        android:id="@+id/ivArrow"
-        android:layout_width="8dp"
-        android:layout_height="13dp"
-        android:layout_marginEnd="15dp"
-        android:src="@drawable/img_arrow"
-        app:layout_constraintBottom_toBottomOf="@+id/tvLatestTransactions"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="11dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvIncomes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="0sp"
+                android:text="@string/incomes"
+                android:textAppearance="@style/incomes_tv" />
+
+            <TextView
+                android:id="@+id/tvIncomesAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="0sp"
+                android:text="@string/income_amount"
+                android:textAppearance="@style/incomes_amount_tv" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvExpenses"
+        android:layout_width="167dp"
+        android:layout_height="72dp"
+        android:elevation="2dp"
+        app:cardCornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvLatestTransactions" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cvIncomes"
+        app:layout_constraintTop_toBottomOf="@+id/dividerLine2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="11dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvExpenses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="0sp"
+                android:text="@string/expenses"
+                android:textAppearance="@style/incomes_tv" />
+
+            <TextView
+                android:id="@+id/tvExpensesAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="0sp"
+                android:text="@string/expenses_amount"
+                android:textAppearance="@style/incomes_amount_tv" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/tvSeeAll"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvDate"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="@string/see_all"
-        android:textAppearance="@style/see_all_tv"
-        app:layout_constraintBottom_toBottomOf="@+id/tvLatestTransactions"
-        app:layout_constraintEnd_toStartOf="@id/ivArrow"
-        app:layout_constraintTop_toTopOf="@id/tvLatestTransactions" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:lineSpacingExtra="0sp"
+        android:text="@string/october"
+        android:textAppearance="@style/incomes_amount_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvIncomes" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvVerticalTransaction"
-        android:layout_width="match_parent"
+    <com.anychart.AnyChartView
+        android:id="@+id/acvExpenses"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvLatestTransactions"
-        tools:listitem="@layout/item_transaction" />
+        app:layout_constraintTop_toBottomOf="@id/tvDate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
