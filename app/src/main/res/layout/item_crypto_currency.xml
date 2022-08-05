@@ -9,7 +9,8 @@
         android:id="@+id/ivCryptoCurrencyLogo"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="12dp"
         android:src="@drawable/img_xrp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -55,13 +56,11 @@
     <View
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="15dp"
         android:alpha="0.1"
         android:background="@android:color/darker_gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvCryptoCurrencyDollar"
+        app:layout_constraintStart_toStartOf="@+id/ivCryptoCurrencyLogo"
         app:layout_constraintTop_toBottomOf="@id/ivCryptoCurrencyLogo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

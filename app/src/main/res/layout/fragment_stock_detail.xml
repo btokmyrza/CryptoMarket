@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/ic_company_logo_background"
         android:gravity="center"
         android:textColor="#000000"
@@ -23,15 +23,15 @@
 
     <TextView
         android:id="@+id/tvCompanySymbol"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
         android:fontFamily="@font/sf_pro_display_regular"
-        android:gravity="center"
         android:lineHeight="22dp"
         android:textColor="#000000"
         android:textSize="17sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvCompanyLogo"
         app:layout_constraintTop_toTopOf="@+id/tvCompanyLogo"
         tools:text="AAPL" />
@@ -45,24 +45,10 @@
         android:lineHeight="16dp"
         android:maxLines="1"
         android:textSize="13sp"
-        app:layout_constraintEnd_toStartOf="@+id/btnMarket"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvCompanyLogo"
         app:layout_constraintTop_toBottomOf="@+id/tvCompanySymbol"
         tools:text="Apple Inc." />
-
-    <Button
-        android:id="@+id/btnMarket"
-        style="@style/Widget.Material3.Button.ElevatedButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
-        android:background="@null"
-        android:backgroundTint="#F2F2F2"
-        android:text="@string/market"
-        android:textSize="13sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvCompanyLogo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvCompanyLogo" />
 
     <View
         android:id="@+id/vBottomLine"

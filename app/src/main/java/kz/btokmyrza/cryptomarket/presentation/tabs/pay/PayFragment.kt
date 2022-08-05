@@ -17,7 +17,6 @@ class PayFragment : Fragment() {
 
     private val payViewModel by viewModel<PayViewModel>()
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

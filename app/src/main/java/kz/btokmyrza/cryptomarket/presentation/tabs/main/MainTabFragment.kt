@@ -14,6 +14,7 @@ import kz.btokmyrza.cryptomarket.presentation.tabs.main.adapters.CreditCardsAdap
 import kz.btokmyrza.cryptomarket.presentation.tabs.main.adapters.StocksAdapter
 import kz.btokmyrza.cryptomarket.presentation.tabs.main.adapters.TransactionsAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.time.LocalDate
 
 class MainTabFragment : Fragment() {
 
@@ -27,6 +28,8 @@ class MainTabFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMainTabBinding.inflate(inflater, container, false)
+
+        setCurrentDate()
 
         setupCreditCardsRecyclerView()
         setupStocksRecyclerView()
@@ -84,6 +87,13 @@ class MainTabFragment : Fragment() {
         mainTabViewModel.transactions.observe(viewLifecycleOwner) { transactions ->
             transactionsAdapter.transactions = transactions
         }
+    }
+
+    private fun setCurrentDate() {
+        val dayOfWeek = LocalDate.now().dayOfWeek.name
+        val day = LocalDate.now().dayOfMonth
+        val month = LocalDate.now().month.name
+        binding.tvCurrentDate.text = "$dayOfWeek, \n $day $month"
     }
 
 }

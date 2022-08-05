@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kz.btokmyrza.cryptomarket.data.mapper.toCryptoCurrency
 import kz.btokmyrza.cryptomarket.databinding.FragmentMarketTradeBinding
 import kz.btokmyrza.cryptomarket.presentation.tabs.trade.TradeViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MarketTradeFragment : Fragment() {
@@ -16,7 +17,7 @@ class MarketTradeFragment : Fragment() {
     private var _binding: FragmentMarketTradeBinding? = null
     private val binding get() = _binding!!
 
-    private val tradeViewModel by viewModel<TradeViewModel>()
+    private val tradeViewModel by sharedViewModel<TradeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

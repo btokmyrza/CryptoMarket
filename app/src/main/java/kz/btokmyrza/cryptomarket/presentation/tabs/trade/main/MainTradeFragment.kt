@@ -10,11 +10,16 @@ import kz.btokmyrza.cryptomarket.R
 import kz.btokmyrza.cryptomarket.databinding.FragmentMainTradeBinding
 import kz.btokmyrza.cryptomarket.domain.model.Currency
 import kz.btokmyrza.cryptomarket.domain.model.Watchlist
+import kz.btokmyrza.cryptomarket.presentation.tabs.trade.TradeViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainTradeFragment : Fragment() {
 
     private var _binding: FragmentMainTradeBinding? = null
     private val binding get() = _binding!!
+
+    private val tradeViewModel by sharedViewModel<TradeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
