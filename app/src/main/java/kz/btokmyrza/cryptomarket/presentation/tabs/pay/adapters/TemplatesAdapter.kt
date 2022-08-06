@@ -50,7 +50,7 @@ class TemplatesAdapter : RecyclerView.Adapter<TemplatesAdapter.TemplatesViewHold
 
             ivTemplateLogo.setImageResource(template.templateLogo)
             tvTemplateName.text = template.templateName
-            tvTemplateAmount.text = template.templateAmount
+            tvTemplateAmount.text = "$" + template.templateAmount
 
             setOnClickListener {
                 onTemplateClickListener?.let { click ->

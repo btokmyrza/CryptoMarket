@@ -17,8 +17,8 @@ class TransactionsRepositoryImpl(
     ) {
         transactionDao.insertTransaction(
             TransactionEntity(
-                phoneNumber = phoneNumber,
-                cardDetails = cardDetails,
+                receiverPhoneNumber = phoneNumber,
+                senderCardDetails = cardDetails,
                 amount = amount
             )
         )

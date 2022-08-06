@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class TransactionEntity(
     @PrimaryKey
     val id: Int? = null,
-    val phoneNumber: String,
-    val cardDetails: String,
+    val receiverPhoneNumber: String,
+    val senderCardDetails: String,
     val amount: String
 )

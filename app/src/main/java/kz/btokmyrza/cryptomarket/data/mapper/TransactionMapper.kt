@@ -9,16 +9,8 @@ fun TransactionEntity.toTransaction(): Transaction {
     return Transaction(
         id = id ?: Random.nextInt(),
         transactionAvatar = R.drawable.ic_money_transfer,
-        transactionName = phoneNumber,
-        transactionCardDetails = cardDetails,
+        transactionName = receiverPhoneNumber,
+        transactionCardDetails = senderCardDetails,
         transactionAmount = amount
-    )
-}
-
-fun Transaction.toTransactionEntity(): TransactionEntity {
-    return TransactionEntity(
-        phoneNumber = transactionName,
-        cardDetails = transactionCardDetails,
-        amount = transactionAmount
     )
 }

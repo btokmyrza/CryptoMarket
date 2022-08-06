@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL
+import androidx.recyclerview.widget.LinearSmoothScroller
 import kz.btokmyrza.cryptomarket.R
 import kz.btokmyrza.cryptomarket.databinding.FragmentMainTabBinding
 import kz.btokmyrza.cryptomarket.presentation.tabs.main.adapters.CreditCardsAdapter
@@ -85,6 +86,11 @@ class MainTabFragment : Fragment() {
         val transactionsAdapter = TransactionsAdapter()
         rvTransactions.adapter = transactionsAdapter
         rvTransactions.layoutManager = layoutManager
+        val smoothScroller = object : LinearSmoothScroller(activity) {
+            override fun getVerticalSnapPreference(): Int = SNAP_TO_START
+        }
+        smoothScroller.targetPosition = 0
+        layoutManager.startSmoothScroll(smoothScroller)
 
         mainTabViewModel.transactions.observe(viewLifecycleOwner) { transactions ->
             transactionsAdapter.transactions = transactions

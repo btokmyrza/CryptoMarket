@@ -13,7 +13,6 @@ import kz.btokmyrza.cryptomarket.domain.model.stocks.StockInfo
 import kz.btokmyrza.cryptomarket.domain.repository.StockRepository
 import kz.btokmyrza.cryptomarket.domain.repository.TransactionsRepository
 import kz.btokmyrza.cryptomarket.util.Constants.CREDIT_CARDS
-import kz.btokmyrza.cryptomarket.util.Constants.TRANSACTIONS
 import kz.btokmyrza.cryptomarket.util.Resource
 
 class MainTabViewModel(
@@ -59,7 +58,7 @@ class MainTabViewModel(
 
     fun getTransactions() {
         viewModelScope.launch {
-            val transactions = transactionsRepository.getTransactions().map { it.toTransaction() }
+            val transactions = transactionsRepository.getTransactions().map { it.toTransaction() }.reversed()
             _transactions.postValue(transactions)
         }
     }

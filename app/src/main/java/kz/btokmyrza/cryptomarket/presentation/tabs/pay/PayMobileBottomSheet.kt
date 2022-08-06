@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
 import kz.btokmyrza.cryptomarket.R
 import kz.btokmyrza.cryptomarket.databinding.BsdPayMobileBinding
-import kz.btokmyrza.cryptomarket.domain.model.Transaction
+import kz.btokmyrza.cryptomarket.util.Constants
+import kz.btokmyrza.cryptomarket.util.Constants.AMOUNT
+import kz.btokmyrza.cryptomarket.util.Constants.PHONE_NUMBER
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class PayMobileBottomSheet : BottomSheetDialogFragment() {
@@ -29,6 +30,12 @@ class PayMobileBottomSheet : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = BsdPayMobileBinding.inflate(inflater, container, false)
+
+        val templatePhoneNumber = arguments?.getString(PHONE_NUMBER) ?: "+7"
+        val templateAmount = arguments?.getString(AMOUNT) ?: ""
+
+        binding.tilPhoneNumber.editText?.setText(templatePhoneNumber)
+        binding.tilAmount.editText?.setText(templateAmount)
 
         binding.btnCancel.setOnClickListener {
             dismiss()
@@ -52,8 +59,8 @@ class PayMobileBottomSheet : BottomSheetDialogFragment() {
 
             payViewModel.addTransaction(phoneNumber, cardDetails, amount)
 
+            PaySuccessBottomSheet().show(parentFragmentManager, null)
             dismiss()
-            Toast.makeText(requireContext(), "Transaction successful!", Toast.LENGTH_SHORT).show()
         }
 
         return binding.root
