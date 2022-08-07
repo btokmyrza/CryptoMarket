@@ -11,6 +11,7 @@ object Constants {
 
     // Pay bottomsheet arguments
     const val PHONE_NUMBER = "PHONE_NUMBER"
+    const val NAME = "NAME"
     const val AMOUNT = "AMOUNT"
 
     // Stocks API

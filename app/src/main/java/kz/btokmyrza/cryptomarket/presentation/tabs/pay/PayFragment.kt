@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import kz.btokmyrza.cryptomarket.databinding.FragmentPayBinding
 import kz.btokmyrza.cryptomarket.presentation.tabs.pay.adapters.TemplatesAdapter
 import kz.btokmyrza.cryptomarket.util.Constants.AMOUNT
+import kz.btokmyrza.cryptomarket.util.Constants.NAME
 import kz.btokmyrza.cryptomarket.util.Constants.PHONE_NUMBER
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -61,7 +62,7 @@ class PayFragment : Fragment() {
         templatesAdapter.setTemplateClickListener {
             val payMobileBottomSheet = PayMobileBottomSheet()
             payMobileBottomSheet.arguments = Bundle().apply {
-                putString(PHONE_NUMBER, "+77052999982")
+                putString(NAME, it.templateName)
                 putString(AMOUNT, it.templateAmount)
             }
             payMobileBottomSheet.show(childFragmentManager, null)

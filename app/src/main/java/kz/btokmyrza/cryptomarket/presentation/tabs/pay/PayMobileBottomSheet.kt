@@ -11,6 +11,7 @@ import kz.btokmyrza.cryptomarket.R
 import kz.btokmyrza.cryptomarket.data.mapper.toStr
 import kz.btokmyrza.cryptomarket.databinding.BsdPayMobileBinding
 import kz.btokmyrza.cryptomarket.util.Constants.AMOUNT
+import kz.btokmyrza.cryptomarket.util.Constants.NAME
 import kz.btokmyrza.cryptomarket.util.Constants.PHONE_NUMBER
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -34,10 +35,10 @@ class PayMobileBottomSheet : BottomSheetDialogFragment() {
         setupSelectCardsSpinner()
         payViewModel.getCreditCards()
 
-        val templatePhoneNumber = arguments?.getString(PHONE_NUMBER) ?: "+7"
+        val templateName = arguments?.getString(NAME) ?: "Someone Someoneson"
         val templateAmount = arguments?.getString(AMOUNT) ?: ""
 
-        binding.tilPhoneNumber.editText?.setText(templatePhoneNumber)
+        binding.tilPhoneNumber.editText?.setText(templateName)
         binding.tilAmount.editText?.setText(templateAmount)
 
         binding.btnCancel.setOnClickListener {

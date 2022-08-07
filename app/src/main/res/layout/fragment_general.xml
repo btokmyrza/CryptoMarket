@@ -124,26 +124,14 @@
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/tvDate"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:lineSpacingExtra="0sp"
-        android:text="@string/october"
-        android:textAppearance="@style/incomes_amount_tv"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cvIncomes" />
-
     <com.anychart.AnyChartView
         android:id="@+id/acvExpenses"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvDate" />
+        app:layout_constraintTop_toBottomOf="@+id/cvIncomes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

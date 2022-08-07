@@ -19,6 +19,7 @@ import kz.btokmyrza.cryptomarket.databinding.FragmentGeneralBinding
 import kz.btokmyrza.cryptomarket.domain.model.Card
 import kz.btokmyrza.cryptomarket.presentation.tabs.account.AccountViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import kotlin.math.absoluteValue
 
 
 class GeneralFragment : Fragment() {
@@ -33,14 +34,19 @@ class GeneralFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentGeneralBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        accountViewModel.getIncomeAndExpense()
 
         setupCardRecyclerView()
-        setupChart()
+
+        accountViewModel.incomeAndExpense.observe(viewLifecycleOwner) {
+            val income = it[0]
+            val expense = it[1].absoluteValue
+            binding.tvIncomesAmount.text = "$$income"
+            binding.tvExpensesAmount.text = "$$expense"
+            setupChart(income, expense)
+        }
+
+        return binding.root
     }
 
     override fun onDestroyView() {
@@ -53,7 +59,6 @@ class GeneralFragment : Fragment() {
         binding.rvHorizontalCards.adapter = cardAdapter
         binding.rvHorizontalCards.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-
         cardAdapter.setCards(getMockCards())
     }
 
@@ -64,12 +69,12 @@ class GeneralFragment : Fragment() {
             Card("Jusan Bank", "Jusan has launched a new project which calls Jusan Junior"),
         )
 
-    private fun setupChart() {
+    private fun setupChart(income: Float, expense: Float) {
         val cartesian: Cartesian = AnyChart.column()
 
         val data: MutableList<DataEntry> = ArrayList()
-        data.add(ValueDataEntry("Incomes", 5690))
-        data.add(ValueDataEntry("Expenses", 2280))
+        data.add(ValueDataEntry("Incomes", income))
+        data.add(ValueDataEntry("Expenses", expense))
 
         val column: Column = cartesian.column(data)
 

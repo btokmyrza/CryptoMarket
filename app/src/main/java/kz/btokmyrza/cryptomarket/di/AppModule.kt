@@ -4,6 +4,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kz.btokmyrza.cryptomarket.presentation.auth.login.LoginViewModel
 import kz.btokmyrza.cryptomarket.presentation.auth.sign_up.SignUpViewModel
+import kz.btokmyrza.cryptomarket.presentation.tabs.account.AccountViewModel
 import kz.btokmyrza.cryptomarket.presentation.tabs.main.MainTabViewModel
 import kz.btokmyrza.cryptomarket.presentation.tabs.main.stock_detail.StockDetailViewModel
 import kz.btokmyrza.cryptomarket.presentation.tabs.pay.PayViewModel
@@ -40,6 +41,12 @@ val appModule = module {
             stockRepository = get(),
             transactionsRepository = get(),
             creditCardRepository = get()
+        )
+    }
+
+    viewModel {
+        AccountViewModel(
+            transactionsRepository = get()
         )
     }
 
