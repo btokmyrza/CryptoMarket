@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:id="@+id/tvCardInfo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="none"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:maxLines="3"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:scrollHorizontally="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        tools:text="Mastercard \n Jusan Bank ($3000) \n 1234 1234 1234 1234" />
+
+</LinearLayout>
+

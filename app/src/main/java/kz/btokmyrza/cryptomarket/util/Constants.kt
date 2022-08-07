@@ -3,7 +3,6 @@ package kz.btokmyrza.cryptomarket.util
 import kz.btokmyrza.cryptomarket.R
 import kz.btokmyrza.cryptomarket.domain.model.CreditCard
 import kz.btokmyrza.cryptomarket.domain.model.Template
-import kz.btokmyrza.cryptomarket.domain.model.Transaction
 
 object Constants {
 
@@ -24,17 +23,10 @@ object Constants {
     val CREDIT_CARDS = listOf(
         CreditCard(
             id = 0,
-            providerLogo = R.drawable.img_master_card,
-            bankName = "Nord Bank",
-            cardDetails = "Mastercard • 7682",
-            moneyAmount = "$5 870.00"
-        ),
-        CreditCard(
-            id = 1,
-            providerLogo = R.drawable.img_visa,
-            bankName = "Amazon",
-            cardDetails = "Visa • 8245",
-            moneyAmount = "$5 870.00"
+            providerLogo = R.drawable.ic_no_credit_cards,
+            bankName = "No credit",
+            cardDetails = " cards added",
+            moneyAmount = ""
         ),
     )
 

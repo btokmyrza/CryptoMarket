@@ -17,12 +17,16 @@ import com.anychart.enums.Position
 import com.anychart.enums.TooltipPositionMode
 import kz.btokmyrza.cryptomarket.databinding.FragmentGeneralBinding
 import kz.btokmyrza.cryptomarket.domain.model.Card
+import kz.btokmyrza.cryptomarket.presentation.tabs.account.AccountViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
 class GeneralFragment : Fragment() {
 
     private var _binding: FragmentGeneralBinding? = null
     private val binding get() = _binding!!
+
+    private val accountViewModel by sharedViewModel<AccountViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

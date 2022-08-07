@@ -36,7 +36,11 @@ val appModule = module {
     }
 
     viewModel {
-        MainTabViewModel(stockRepository = get(), transactionsRepository = get())
+        MainTabViewModel(
+            stockRepository = get(),
+            transactionsRepository = get(),
+            creditCardRepository = get()
+        )
     }
 
     viewModel {
@@ -48,7 +52,11 @@ val appModule = module {
     }
 
     viewModel {
-        PayViewModel(repository = get(), dispatchers = get())
+        PayViewModel(
+            repository = get(),
+            dispatchers = get(),
+            creditCardRepository = get()
+        )
     }
 
 }

@@ -68,4 +68,18 @@
     <string name="add_card">Add card</string>
     <string name="done">Done</string>
     <string name="success">Success</string>
+    <string name="card_provider">Card Provider:</string>
+    <string name="bank_name">Bank Name:</string>
+    <string name="jusan_bank">Jusan Bank</string>
+    <string name="card_details">Card Details:</string>
+    <string name="example_card_number">1234 1234 1234 1234</string>
+    <string name="current_balance">Current Balance ($):</string>
+    <string name="example_current_balance">5000.00</string>
+    <string name="enter_card_details">Enter Card Details:</string>
+    <string name="select_a_card">Select a card</string>
+
+    <string-array name="card_providers">
+        <item>Visa</item>
+        <item>MasterCard</item>
+    </string-array>
 </resources>

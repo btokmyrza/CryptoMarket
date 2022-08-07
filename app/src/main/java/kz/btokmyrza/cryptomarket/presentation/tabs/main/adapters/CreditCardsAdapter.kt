@@ -52,7 +52,7 @@ class CreditCardsAdapter : RecyclerView.Adapter<CreditCardsAdapter.CreditCardsVi
             ivCardProviderLogo.setImageResource(creditCard.providerLogo)
             tvBankName.text = creditCard.bankName
             tvCardDetails.text = creditCard.cardDetails
-            tvMoneyAmount.text = creditCard.moneyAmount
+            tvMoneyAmount.text = "$" + creditCard.moneyAmount
 
             setOnClickListener {
                 onCreditCardClickListener?.let { click ->

@@ -14,7 +14,7 @@ import kz.btokmyrza.cryptomarket.databinding.FragmentMainTabBinding
 import kz.btokmyrza.cryptomarket.presentation.tabs.main.adapters.CreditCardsAdapter
 import kz.btokmyrza.cryptomarket.presentation.tabs.main.adapters.StocksAdapter
 import kz.btokmyrza.cryptomarket.presentation.tabs.main.adapters.TransactionsAdapter
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import java.time.LocalDate
 
 class MainTabFragment : Fragment() {
@@ -22,7 +22,7 @@ class MainTabFragment : Fragment() {
     private var _binding: FragmentMainTabBinding? = null
     private val binding get() = _binding!!
 
-    private val mainTabViewModel by viewModel<MainTabViewModel>()
+    private val mainTabViewModel by sharedViewModel<MainTabViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +37,16 @@ class MainTabFragment : Fragment() {
         setupTransactionsRecyclerView()
 
         mainTabViewModel.getTransactions()
+        mainTabViewModel.getCreditCards()
+        mainTabViewModel.getTotalBalance()
+
+        mainTabViewModel.totalBalance.observe(viewLifecycleOwner) {
+            binding.tvTotalBalanceAmount.text = "$$it"
+        }
+
+        binding.btnAddCard.setOnClickListener {
+            AddCreditCardBottomSheet().show(childFragmentManager, null)
+        }
 
         return binding.root
     }
