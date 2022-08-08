@@ -92,7 +92,7 @@ class PayBottomSheet : BottomSheetDialogFragment() {
     private fun convertCardDetails(cardDetails: String): String {
         val cardDetailsArr = cardDetails.split("\n")
         val cardProvider = cardDetailsArr[0]
-        val lastFourDigits = cardDetailsArr[2].split(" ")[3]
+        val lastFourDigits = cardDetailsArr[2].takeLast(4)
         return "$cardProvider • $lastFourDigits"
     }
 
