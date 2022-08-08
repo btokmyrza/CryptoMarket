@@ -54,6 +54,7 @@ class AddCreditCardBottomSheet : BottomSheetDialogFragment() {
             )
             Toast.makeText(requireContext(), "Card added successfully!", Toast.LENGTH_SHORT).show()
             mainTabViewModel.getCreditCards()
+            mainTabViewModel.getTotalBalance()
             dismiss()
         }
 

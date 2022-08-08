@@ -65,7 +65,7 @@ class PayViewModel(
             templateName = templateName,
             templateAmount = templateAmount
         )
-        val newList = TEMPLATES + listOf(template)
+        val newList = _templates.value?.plus(listOf(template))
         _templates.postValue(newList)
     }
 
