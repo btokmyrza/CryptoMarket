@@ -9,15 +9,14 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
 import kz.btokmyrza.cryptomarket.R
 import kz.btokmyrza.cryptomarket.data.mapper.toStr
-import kz.btokmyrza.cryptomarket.databinding.BsdPayMobileBinding
+import kz.btokmyrza.cryptomarket.databinding.BsdPayBinding
 import kz.btokmyrza.cryptomarket.util.Constants.AMOUNT
 import kz.btokmyrza.cryptomarket.util.Constants.NAME
-import kz.btokmyrza.cryptomarket.util.Constants.PHONE_NUMBER
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class PayMobileBottomSheet : BottomSheetDialogFragment() {
+class PayBottomSheet : BottomSheetDialogFragment() {
 
-    private var _binding: BsdPayMobileBinding? = null
+    private var _binding: BsdPayBinding? = null
     private val binding get() = _binding!!
 
     private val payViewModel by sharedViewModel<PayViewModel>()
@@ -31,7 +30,7 @@ class PayMobileBottomSheet : BottomSheetDialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = BsdPayMobileBinding.inflate(inflater, container, false)
+        _binding = BsdPayBinding.inflate(inflater, container, false)
         setupSelectCardsSpinner()
         payViewModel.getCreditCards()
 

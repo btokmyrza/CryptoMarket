@@ -5,15 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
+import kz.btokmyrza.cryptomarket.R
 import kz.btokmyrza.cryptomarket.data.local.credit_card.CreditCardEntity
-import kz.btokmyrza.cryptomarket.data.mapper.toCreditCard
-import kz.btokmyrza.cryptomarket.domain.model.CreditCard
 import kz.btokmyrza.cryptomarket.domain.model.Template
 import kz.btokmyrza.cryptomarket.domain.repository.CreditCardRepository
 import kz.btokmyrza.cryptomarket.domain.repository.TransactionsRepository
-import kz.btokmyrza.cryptomarket.util.Constants
 import kz.btokmyrza.cryptomarket.util.Constants.TEMPLATES
 import kz.btokmyrza.cryptomarket.util.DispatcherProvider
+import kotlin.random.Random
 
 class PayViewModel(
     private val repository: TransactionsRepository,
@@ -47,6 +46,27 @@ class PayViewModel(
         viewModelScope.launch(dispatchers.io) {
             creditCardRepository.changeCreditCardBalance(-amount, bankName)
         }
+    }
+
+    fun addTemplate(
+        templateType: String,
+        templateName: String,
+        templateAmount: String
+    ) {
+        val template = Template(
+            id = Random.nextInt(),
+            templateLogo = when (templateType) {
+                "Person" -> R.drawable.template_john
+                "Phone" -> R.drawable.template_phone
+                "Internet" -> R.drawable.template_internet
+                "House Rent" -> R.drawable.template_house_rent
+                else -> R.drawable.ic_money_transfer
+            },
+            templateName = templateName,
+            templateAmount = templateAmount
+        )
+        val newList = TEMPLATES + listOf(template)
+        _templates.postValue(newList)
     }
 
 }

@@ -6,16 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import kz.btokmyrza.cryptomarket.databinding.FragmentPayBinding
+import kz.btokmyrza.cryptomarket.databinding.FragmentPayTabBinding
 import kz.btokmyrza.cryptomarket.presentation.tabs.pay.adapters.TemplatesAdapter
 import kz.btokmyrza.cryptomarket.util.Constants.AMOUNT
 import kz.btokmyrza.cryptomarket.util.Constants.NAME
-import kz.btokmyrza.cryptomarket.util.Constants.PHONE_NUMBER
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class PayFragment : Fragment() {
+class PayTabFragment : Fragment() {
 
-    private var _binding: FragmentPayBinding? = null
+    private var _binding: FragmentPayTabBinding? = null
     private val binding get() = _binding!!
 
     private val payViewModel by sharedViewModel<PayViewModel>()
@@ -24,23 +23,27 @@ class PayFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentPayBinding.inflate(inflater, container, false)
+        _binding = FragmentPayTabBinding.inflate(inflater, container, false)
 
         setupTemplatesRecyclerView()
 
+        binding.btnAddTemplates.setOnClickListener {
+            PayAddTemplateBottomSheet().show(childFragmentManager, null)
+        }
+
         binding.tvTransferToCards.setOnClickListener {
-            PayMobileBottomSheet().show(childFragmentManager, null)
+            PayBottomSheet().show(childFragmentManager, null)
         }
         binding.tvTransferToWallet.setOnClickListener {
-            PayMobileBottomSheet().show(childFragmentManager, null)
+            PayBottomSheet().show(childFragmentManager, null)
         }
 
         binding.tvMobile.setOnClickListener {
-            PayMobileBottomSheet().show(childFragmentManager, null)
+            PayBottomSheet().show(childFragmentManager, null)
         }
 
         binding.tvInternet.setOnClickListener {
-            PayMobileBottomSheet().show(childFragmentManager, null)
+            PayBottomSheet().show(childFragmentManager, null)
         }
 
         return binding.root
@@ -60,12 +63,12 @@ class PayFragment : Fragment() {
         rvTemplates.layoutManager = layoutManager
 
         templatesAdapter.setTemplateClickListener {
-            val payMobileBottomSheet = PayMobileBottomSheet()
-            payMobileBottomSheet.arguments = Bundle().apply {
+            val payBottomSheet = PayBottomSheet()
+            payBottomSheet.arguments = Bundle().apply {
                 putString(NAME, it.templateName)
                 putString(AMOUNT, it.templateAmount)
             }
-            payMobileBottomSheet.show(childFragmentManager, null)
+            payBottomSheet.show(childFragmentManager, null)
         }
 
         payViewModel.templates.observe(viewLifecycleOwner) { templates ->

@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.tabs.pay.PayFragment">
+    tools:context=".presentation.tabs.pay.PayTabFragment">
 
     <TextView
         android:id="@+id/tvPaymentsMainText"
@@ -86,7 +86,6 @@
         android:textAllCaps="false"
         android:textSize="17sp"
         android:textStyle="bold"
-        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/tvTemplatesText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvTemplatesText" />

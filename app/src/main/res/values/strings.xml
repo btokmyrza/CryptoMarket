@@ -77,9 +77,23 @@
     <string name="example_current_balance">5000.00</string>
     <string name="enter_card_details">Enter Card Details:</string>
     <string name="select_a_card">Select a card</string>
+    <string name="add_new_template">Add new template:</string>
+    <string name="type">Type:</string>
+    <string name="template_name">Template Name:</string>
+    <string name="enter_name">Enter name</string>
+    <string name="transfer_amount">Transfer Amount ($):</string>
+    <string name="add_template">Add template</string>
 
     <string-array name="card_providers">
         <item>Visa</item>
         <item>MasterCard</item>
     </string-array>
+
+    <string-array name="template_types">
+        <item>Person</item>
+        <item>Phone</item>
+        <item>Internet</item>
+        <item>House Rent</item>
+    </string-array>
+
 </resources>
